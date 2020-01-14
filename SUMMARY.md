@@ -47,9 +47,40 @@
   * 🔵 纤程 Fiber
   * 🟢 练习：自定义批处理
   * 🔵 练习：实现 Y 组合子
-* 第六周：系统调用再入门 (WIP)
-* 第七周：Ruby 工程化再入门 (WIP)
-* 第八周：并行编程再入门 (WIP)
-* 第九周：Ruby 元编程再入门 (WIP)
-* 第十周：加入 Ruby 社区再入门 (WIP)
+* 第六周：系统调用再入门
+  * 🟢 I/O 网络栈
+  * 🟢 *NIX 进程
+  * 🔵 FFI
+  * 🟢 练习：朴素 Shell
+  * 🔵 练习：在 GitHub 上画图
+* 第七周：Ruby 工程化再入门
+  * 🟢 require
+  * 🔵 require 的内部实现
+  * 🟢 RubyGems
+  * 🟢 Bundler
+  * 🔵 require 的内部实现
+  * 🟢 练习：Sinatra 小网站
+  * 🟢 练习：做一个简单的 RubyGems
+  * 🔵 练习：做一个 C 扩展 RubyGems
+  * 🔵 练习：自建 Ruby on Rails
+* 第八周：并行编程再入门
+  * 🟢 多线程开发
+  * 🔵 Ruby GIL
+  * 🟢 自旋锁
+  * 🔵 哲学家就餐问题
+  * 🟢 多进程开发
+  * 🟢 练习：文件批处理
+  * 🔵 练习：高速爬虫
+* 第九周：Ruby 元编程再入门
+  * 🟢 方法扩展
+  * 🟢 动态方法
+  * 🔵 `method_mssing`
+  * 🟢 Is `eval` evil?
+  * 🟢 练习：猴子补丁
+  * 🔵 练习：写一个朴素的 DSL
+* 第十周：加入 Ruby 社区再入门
+  * 🟢 如何继续学习？
+  * 🟢 关注 Ruby 更新
   * 🟢 Ruby 会议
+  * 🔵 关注 Ruby 开发进度
+  * 🔵 为 Ruby 提交 Patch
