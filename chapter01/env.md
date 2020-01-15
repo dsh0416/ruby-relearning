@@ -10,6 +10,7 @@ Ruby 解释器是 Ruby 语言开发的核心。Ruby 是一个开放的语言，�
   - TruffleRuby
   - Rubinius
   - RubyMotion
+  - Opal
 - mruby
   - mruby
   - mruby/c
@@ -84,6 +85,10 @@ sudo snap install ruby --classic
 在电子游戏《尼尔：机械纪元》的 [用户协议](https://www.jp.square-enix.com/nierautomata/sp/lisence/) 中，我们会发现出现了 Ruby License。可见在这款游戏中使用了 Ruby 语言实现了一定的功能。这款游戏首发在 PS4 平台上，而 PS4 的操作系统是一个修改自 FreeBSD 操作系统。所以 Ruby 语言对于 BSD 系的操作系统同样是非常友好的。
 
 但如果你想在一些嵌入式设备上运行 Ruby 或者需要运行在 PS4 上，使用包管理器可能不是一个好主意，因为你不一定具有全局安装的权限或者不想引入额外的复杂度。这时候直接从源代码编译可能就变成了必须。
+
+![Photo by Monika Grabkowska on Unsplash](/assets/cake-recipe.jpg)
+
+> 生日快乐！欢迎自己编译你的蛋糕。 (Photo by Monika Grabkowska on Unsplash)
 
 从源代码编译安装很简单，你可以先从 Ruby 官方网站下载 [最新的源代码](https://www.ruby-lang.org/zh_cn/downloads/)，在解压后执行：
 
