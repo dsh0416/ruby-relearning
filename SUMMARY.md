@@ -4,8 +4,8 @@
 * [写在一切开始之前](preface/README.md)
 * [第一周：Hello World 再入门](chapter01/README.md)
   * [🟩 环境搭建](chapter01/env.md)
-  * 🟩 REPL 和编辑器
   * 🟦 如何管理 Ruby 版本
+  * 🟩 REPL 和编辑器
   * 🟩 变量与基本算数
   * 🟦 如何理解 Ruby 变量与常量
   * 🟩 条件与循环
