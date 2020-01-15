@@ -2,7 +2,7 @@
 
 * [简介](README.md)
 * [写在一切开始之前](preface/README.md)
-* 第一周：Hello World 再入门
+* [第一周：Hello World 再入门](chapter01/README.md)
   * 🟩 环境搭建
   * 🟦 如何管理 Ruby 版本
   * 🟩 变量与基本算数
@@ -44,6 +44,8 @@
   * 🟦 作用域与 binding
   * 🟦 Lambda 演算
   * 🟩 与面向对象结合
+  * 🟩 异常处理
+  * 🟦 深入理解异常处理
   * 🟦 纤程 Fiber
   * 🟩 练习：自定义批处理
   * 🟦 练习：实现 Y 组合子
