@@ -28,6 +28,9 @@ jobs:
     - name: build_gitbook
       run: |
         gitbook build
+    - name: cname
+      run: |
+        echo "restartruby.com" > ./_book/CNAME
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
