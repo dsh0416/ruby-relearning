@@ -18,6 +18,10 @@
 
 本书使用 Git 进行维护，并使用 GitHub 对 Git 仓库进行管理。请使用 GitHub 的 Issue 和 Pull Request 系统为本书提供意见和修改。
 
+## 在线阅读
+
+[restartruby.com](https://restartruby.com)
+
 ## 鸣谢
 
 这本书的写作过程和发行过程离不开下面这些人的帮助，谢谢他们。
