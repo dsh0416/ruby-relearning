@@ -1,0 +1,1660 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>🟩 Is eval evil? · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface/">
+            
+                <a href="../preface/">
+            
+                    
+                    写在一切开始之前
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter01/">
+            
+                <a href="../chapter01/">
+            
+                    
+                    第一周：Hello World 再入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter01/env.html">
+            
+                <a href="../chapter01/env.html">
+            
+                    
+                    🟩 环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter01/rvm.html">
+            
+                <a href="../chapter01/rvm.html">
+            
+                    
+                    🟦 如何管理 Ruby 版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter01/editor.html">
+            
+                <a href="../chapter01/editor.html">
+            
+                    
+                    🟩 REPL 和编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter01/variables.html">
+            
+                <a href="../chapter01/variables.html">
+            
+                    
+                    🟩 变量与基本算数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter01/consts.html">
+            
+                <a href="../chapter01/consts.html">
+            
+                    
+                    🟦 如何理解 Ruby 变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter01/conditions.html">
+            
+                <a href="../chapter01/conditions.html">
+            
+                    
+                    🟩 条件与循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../chapter01/sugar.html">
+            
+                <a href="../chapter01/sugar.html">
+            
+                    
+                    🟦 语法糖设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../chapter01/calculator.html">
+            
+                <a href="../chapter01/calculator.html">
+            
+                    
+                    🟩 练习：计算器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    第二周：数学运算再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    🟩 基础数学运算
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    🟦 Ruby 基础数值类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    🟩 数组
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    🟩 理解引用拷贝
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" >
+            
+                <span>
+            
+                    
+                    🟦 垃圾回收
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" >
+            
+                <span>
+            
+                    
+                    🟩 矩阵运算
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" >
+            
+                <span>
+            
+                    
+                    🟩 练习：生命游戏
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" >
+            
+                <span>
+            
+                    
+                    🟦 练习：线性方程组矩阵解法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    第三周：字符处理再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" >
+            
+                <span>
+            
+                    
+                    🟩 常用字符串处理法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    🟩 正则表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" >
+            
+                <span>
+            
+                    
+                    🟦 与 Perl 字符串处理的比较
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" >
+            
+                <span>
+            
+                    
+                    🟩 输入处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" >
+            
+                <span>
+            
+                    
+                    🟩 格式化输出
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" >
+            
+                <span>
+            
+                    
+                    🟩 练习：再写一个计算器
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" >
+            
+                <span>
+            
+                    
+                    🟦 练习：简易 CLI
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    第四周：面向对象再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" >
+            
+                <span>
+            
+                    
+                    🟩 类与实例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    🟩 继承与重写
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    🟩 万物皆是对象
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    🟦 鸭子类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" >
+            
+                <span>
+            
+                    
+                    🟩 危险方法和布尔方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" >
+            
+                <span>
+            
+                    
+                    🟩 模组与命名空间
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" >
+            
+                <span>
+            
+                    
+                    🟦 和 Java 对象系统比较
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" >
+            
+                <span>
+            
+                    
+                    🟦 面向对象是必需吗？
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" >
+            
+                <span>
+            
+                    
+                    🟩 练习：迷你卡牌游戏
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" >
+            
+                <span>
+            
+                    
+                    🟦 练习：迷你卡牌游戏 AI
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    第五周：Lambda 再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    🟩 方法块 (block)
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    🟩 过程 (Proc) 与 Lambda
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    🟦 作用域与 binding
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    🟦 Lambda 演算
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" >
+            
+                <span>
+            
+                    
+                    🟩 与面向对象结合
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" >
+            
+                <span>
+            
+                    
+                    🟩 异常处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    🟦 深入理解异常处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    🟦 纤程 Fiber
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" >
+            
+                <span>
+            
+                    
+                    🟩 练习：自定义批处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" >
+            
+                <span>
+            
+                    
+                    🟦 练习：实现 Y 组合子
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    第六周：Ruby 工程化入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    🟩 注释
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    🟩 require
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    🟦 require 的内部实现
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" >
+            
+                <span>
+            
+                    
+                    🟩 RubyGems
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" >
+            
+                <span>
+            
+                    
+                    🟩 Bundler
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" >
+            
+                <span>
+            
+                    
+                    🟦 rdoc 文档
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" >
+            
+                <span>
+            
+                    
+                    🟩 练习：Sinatra 小网站
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" >
+            
+                <span>
+            
+                    
+                    🟩 打开 RubyGems
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" >
+            
+                <span>
+            
+                    
+                    🟩 练习：做一个简单的 RubyGems
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" >
+            
+                <span>
+            
+                    
+                    🟦 练习：自制简单 Ruby on Rails
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    第七周：系统调用再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" >
+            
+                <span>
+            
+                    
+                    🟩 I/O 网络栈
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" >
+            
+                <span>
+            
+                    
+                    🟩 *NIX 进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" >
+            
+                <span>
+            
+                    
+                    🟦 FFI
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" >
+            
+                <span>
+            
+                    
+                    🟩 练习：朴素 Shell
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" >
+            
+                <span>
+            
+                    
+                    🟦 练习：在 GitHub 上画图
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    第八周：并行编程再入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" >
+            
+                <span>
+            
+                    
+                    🟩 多线程开发
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" >
+            
+                <span>
+            
+                    
+                    🟦 Ruby GIL
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" >
+            
+                <span>
+            
+                    
+                    🟩 自旋锁
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" >
+            
+                <span>
+            
+                    
+                    🟦 哲学家就餐问题
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" >
+            
+                <span>
+            
+                    
+                    🟩 多进程开发
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" >
+            
+                <span>
+            
+                    
+                    🟩 练习：文件批处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" >
+            
+                <span>
+            
+                    
+                    🟦 练习：高速爬虫
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    第九周：Ruby 元编程入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" >
+            
+                <span>
+            
+                    
+                    🟩 方法扩展
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" >
+            
+                <span>
+            
+                    
+                    🟩 动态方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" >
+            
+                <span>
+            
+                    
+                    🟦 method_mssing
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.4" data-path="is_eval_evil.html">
+            
+                <a href="is_eval_evil.html">
+            
+                    
+                    🟩 Is eval evil?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" >
+            
+                <span>
+            
+                    
+                    🟩 练习：猴子补丁
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" >
+            
+                <span>
+            
+                    
+                    🟦 练习：写一个朴素的 DSL
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" >
+            
+                <span>
+            
+                    
+                    🟦 练习：做一个 C 扩展 RubyGems
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    第十周：加入 Ruby 社区入门
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" >
+            
+                <span>
+            
+                    
+                    🟩 如何继续学习？
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" >
+            
+                <span>
+            
+                    
+                    🟩 关注 Ruby 更新
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" >
+            
+                <span>
+            
+                    
+                    🟩 Ruby 会议
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" >
+            
+                <span>
+            
+                    
+                    🟦 关注 Ruby 开发进度
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" >
+            
+                <span>
+            
+                    
+                    🟦 为 Ruby 提交 Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    后记
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >🟩 Is eval evil?</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="is-eval-evil">Is eval evil?</h1>
+<blockquote>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x53D6;&#x81EA;&#x535A;&#x5BA2;&#xFF0C;&#x9700;&#x8981;&#x5927;&#x5E45;&#x6539;&#x5199;</p>
+</blockquote>
+<h2 id="&#x5F15;">&#x5F15;</h2>
+<p>&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF0C;&#x90FD;&#x652F;&#x6301; <code>eval</code> &#x8FD9;&#x4E2A;&#x795E;&#x5947;&#x7684;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x6253;&#x4ED6;&#x4EEC;&#x592A;&#x7237;&#x7237; Lisp &#x5F00;&#x59CB;&#x5C31;&#x652F;&#x6301;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x3002;&#x867D;&#x7136;&#x5199;&#x6CD5;&#xFF08;eg: <code>(eval &apos;(+ 1 2 3))</code> &#xFF09;&#x6709;&#x7A0D;&#x8BB8;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x8BED;&#x4E49;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x8BF4; <code>eval</code> &#x51FD;&#x6570;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x5176;&#x89E3;&#x6790;&#x6210;&#x8BED;&#x53E5;&#x5E76;&#x6DF7;&#x5408;&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x8FD0;&#x884C;&#x3002;&#x4F46;&#x6211;&#x60F3;&#x5927;&#x5BB6;&#x4E5F;&#x90FD;&#x542C;&#x8FC7;&#x8FD9;&#x4E48;&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;</p>
+<blockquote>
+<p>eval is evil.</p>
+</blockquote>
+<p>&#x4F46;&#x662F; How evil is eval&#xFF1F;&#x90A3;&#x4E48;&#x65E2;&#x7136; <code>eval</code> &#x5982;&#x6B64;&#x7F6A;&#x6076;&#xFF0C;&#x90A3;&#x4E48;&#x4E3A;&#x4EC0;&#x4E48;&#x5B83;&#x4ECD;&#x88AB;&#x90A3;&#x4E48;&#x591A;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#x4F5C;&#x4E3A;&#x63A5;&#x53E3;&#x66B4;&#x9732;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x4E0D;&#x59A8;&#x6765;&#x4ED4;&#x7EC6;&#x63A2;&#x8BA8;&#x4E00;&#x4E0B; <code>eval</code> &#x5728;&#x4F7F;&#x7528;&#x4E2D;&#x7A76;&#x7ADF;&#x4F1A;&#x4EA7;&#x751F;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x65E5;&#x5E38;&#x7F16;&#x7A0B;&#x4E2D;&#x7A76;&#x7ADF;&#x8BE5;&#x4E0D;&#x8BE5;&#x4F7F;&#x7528; <code>eval</code>&#xFF0C;&#x5982;&#x679C;&#x8981;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x53C8;&#x8BE5;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x5B57;&#x7B26;&#x4E32;&#x5B89;&#x5168;">&#x5B57;&#x7B26;&#x4E32;&#x5B89;&#x5168;</h2>
+<p>&#x8BF4;&#x5230; <code>eval</code> &#x7B2C;&#x4E00;&#x4E2A;&#x4F1A;&#x88AB;&#x8BA8;&#x8BBA;&#x7684;&#x5F53;&#x7136;&#x5C31;&#x662F;&#x5176;&#x5B89;&#x5168;&#x6027;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x56DB;&#x5219;&#x8FD0;&#x7B97;&#x5668;&#xFF1A;</p>
+<pre><code class="lang-ruby">loop <span class="hljs-keyword">do</span>
+  print(<span class="hljs-string">&apos;Expression: &apos;</span>)
+  puts(<span class="hljs-string">&quot;result: <span class="hljs-subst">#{eval gets.chomp}</span>&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code>Expression: 1+1
+result: 2
+Expression: 2+2
+result: 4
+Expression: 3*4
+result: 12
+Expression: 4+(1*1)
+result: 6
+</code></pre><p>Awesome! &#x8FD9;&#x6BB5;&#x7A0B;&#x5E8F;&#x5B9E;&#x73B0;&#x4E86;&#x5168;&#x90E8;&#x56DB;&#x5219;&#x8FD0;&#x7B97;&#x7684;&#x529F;&#x80FD;&#xFF01;&#x53EA;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x4E1C;&#x897F;&#x5B9E;&#x73B0;&#x4E86; <strong>&#x4E0D;&#x6B62;</strong> &#x56DB;&#x5219;&#x8FD0;&#x7B97;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x5B83;&#x80FD;&#x5904;&#x7406;&#x4EFB;&#x610F; Ruby &#x8BED;&#x53E5;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x5DF2;&#x7ECF;&#x662F;&#x4E00;&#x4E2A; REPL&#xFF08;Read-Eval-Print Loop&#xFF09;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x4E00;&#x4E9B;&#x300C;&#x5371;&#x9669;&#x300D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>Expression: exit
+Process exit with code 0
+</code></pre><p>&#x66F4;&#x5B9E;&#x9645;&#x7684;&#x5E94;&#x7528;&#x662F;&#xFF0C;&#x5728; JavaScript &#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x652F;&#x6301; IE7 &#x7684;&#x8BDD;&#xFF0C;<code>JSON.parse()</code> &#x662F;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x5F15;&#x5165;&#x4E00;&#x4E2A; JSON &#x89E3;&#x6790;&#x5E93;&#xFF0C;&#x6700;&#x65B9;&#x4FBF;&#x7684;&#x5199;&#x6CD5;&#x5C31;&#x662F; <code>eval(json)</code>&#xFF0C;&#x56E0;&#x4E3A;&#x6BD5;&#x7ADF; JSON &#x4E5F;&#x662F;&#x5408;&#x6CD5;&#x7684; JavaScript &#x8BED;&#x53E5;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x5B89;&#x5168;&#x6027;&#x95EE;&#x9898;&#x662F;&#x663E;&#x7136;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x4E0D;&#x6B62; <code>eval</code> &#x6709;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6240;&#x6709;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x6253;&#x4EA4;&#x9053;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x6216;&#x591A;&#x6216;&#x5C11;&#x90FD;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x300C;SQL &#x6CE8;&#x5165;&#x300D;&#x8BF4;&#x5230;&#x5E95;&#x4E5F;&#x5C31;&#x662F;&#x8FD9;&#x4E48;&#x4E00;&#x56DE;&#x4E8B;&#x3002;&#x518D;&#x6BD4;&#x5982;&#x4F60;&#x5728; Ruby &#x4EE3;&#x7801;&#x4E2D;&#x8BD5;&#x56FE;&#x64CD;&#x4F5C; <code>git</code> &#x547D;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x53CD;&#x5F15;&#x53F7;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># gems/rest-client-1.6.7/bin/restclient &#x6458;&#x81EA;&#x300A;Ruby &#x5143;&#x7F16;&#x7A0B;(&#x7B2C;&#x4E8C;&#x7248;)&#x300B;&#x7B2C; 142 &#x9875;</span>
+POSSIBLE_VERBS = [<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;put&apos;</span>, <span class="hljs-string">&apos;post&apos;</span>, <span class="hljs-string">&apos;delete&apos;</span>]
+POSSIBLE_VERBS.each <span class="hljs-keyword">do</span> |m|
+  eval &lt;&lt;-end_eval
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-comment">#{m}(path, *args, &amp;b)</span></span>
+      r[path].<span class="hljs-comment">#{m}(*args, &amp;b)</span>
+     <span class="hljs-keyword">end</span>
+  end_eval
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x4E5F;&#x4F7F;&#x7528;&#x4E86; <code>eval</code>&#xFF0C;&#x4E5F;&#x5728; <code>eval</code> &#x4E2D;&#x62FC;&#x63A5;&#x4E86;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B58;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#x7684;&#x5B89;&#x5168;&#x6027;&#x95EE;&#x9898;&#x5417;&#xFF1F;&#x5E76;&#x6CA1;&#x6709;&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x4ECE;&#x5E38;&#x91CF;&#x6570;&#x7EC4;&#x4E2D;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E76;&#x4E0D;&#x5B58;&#x5728;&#x7528;&#x6237;&#x4EFB;&#x610F;&#x8F93;&#x5165;&#x5BFC;&#x81F4;&#x6CE8;&#x5165;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4F46;&#xFF0C;&#x6211;&#x4EEC;&#x53CD;&#x8FC7;&#x6765;&#x8BF4;&#xFF0C;SQL &#x9A71;&#x52A8;&#x81EA;&#x5E26;&#x7684; <code>query</code> &#x51FD;&#x6570;&#x90FD;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x6CE8;&#x5165;&#xFF0C;&#x96BE;&#x9053;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x7528; SQL &#x4E86;&#x5417;&#xFF1F;&#x5E76;&#x6CA1;&#x6709;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6CE8;&#x5165;&#x95EE;&#x9898;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x89E3;&#x51B3;&#x7684;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x505A;&#x597D;&#x5BF9;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684; <strong>&#x8FC7;&#x6EE4;</strong> &#x548C; <strong>&#x8F6C;&#x4E49;</strong> &#x540C;&#x6837;&#x4E5F;&#x80FD;&#x89E3;&#x51B3;&#x3002;&#x95EE;&#x9898;&#x5C31;&#x5728;&#x4E8E;&#xFF0C;&#x8FD9;&#x4E48;&#x505A;&#x7684;&#x6210;&#x672C;&#x548C; <code>eval</code> &#x5E26;&#x6765;&#x7684;&#x52A8;&#x6001;&#x6027;&#x597D;&#x5904;&#xFF0C;&#x54EA;&#x4E2A;&#x66F4;&#x5927;&#x7684;&#x6743;&#x8861;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="lexer--parser">Lexer &amp; Parser</h2>
+<blockquote>
+<p>&#x672C;&#x6765;&#x60F3;&#x7528;&#x4E2D;&#x6587;&#x5199;&#x8FD9;&#x4E2A;&#x5C0F;&#x6807;&#x9898;&#xFF0C;&#x4F46;&#x611F;&#x89C9;&#x300C;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x548C;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x300D;&#x5B9E;&#x5728;&#x8FD9;&#x6807;&#x9898;&#x592A;&#x957F;&#x4E86;</p>
+</blockquote>
+<p>&#x5B66;&#x8FC7;&#x4E00;&#x4E9B;&#x300A;&#x7F16;&#x8BD1;&#x539F;&#x7406;&#x300B;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x89E3;&#x91CA;&#x5668;&#x8FD8;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x62FF;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x65E0;&#x975E;&#x5C31;&#x662F;</p>
+<p><code>&#x8BCD;&#x6CD5;&#x5206;&#x6790; -&gt; &#x8BED;&#x6CD5;&#x5206;&#x6790; -&gt; &#x8BED;&#x4E49;&#x68C0;&#x67E5; -&gt; &#x751F;&#x6210;&#x8BED;&#x6CD5;&#x6811; -&gt; &#x4EE3;&#x7801;&#x4F18;&#x5316; -&gt; &#x751F;&#x6210;&#x76EE;&#x6807;&#x4EE3;&#x7801;/&#x6267;&#x884C;</code></p>
+<p>&#x4F7F;&#x7528; <code>eval</code> &#x51FD;&#x6570;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x7ECF;&#x5386;&#x5168;&#x90E8;&#x7684;&#x8FD9;&#x4E9B;&#x6B65;&#x9AA4;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#x5373;&#x4F7F;&#x662F;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x5728;&#x4F60;&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x8FD0;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x3002;&#x524D;&#x671F;&#x6B65;&#x9AA4;&#x901A;&#x5E38;&#x90FD;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x53EA;&#x5269;&#x4E0B;&#x6700;&#x540E;&#x4E00;&#x6B65;&#x6267;&#x884C;&#x4E86;&#x3002;&#x4E0D;&#x8FC7;&#x52A0;&#x5165; <code>eval</code> &#x4E4B;&#x540E;&#x5C31;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#x3002;&#x56E0;&#x4E3A; <code>eval</code> &#x4F20;&#x5165;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x9700;&#x8981;&#x5BF9;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x4ECE;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x5F00;&#x59CB;&#x91CD;&#x65B0;&#x8D70;&#x4E00;&#x904D;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x3001;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x3001;&#x8BED;&#x4E49;&#x68C0;&#x67E5;&#x5E76;&#x4E0D;&#x5FEB;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x6BD4;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-ruby">GC.disable <span class="hljs-comment"># &#x7981;&#x7528; GC &#x4EE5;&#x907F;&#x514D;&#x540E;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x5728;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x906D;&#x9047; GC &#x5BF9;&#x5176;&#x4E0D;&#x516C;</span>
+
+time = Time.now.to_f
+<span class="hljs-number">1000000</span>.times <span class="hljs-keyword">do</span>
+  rand+rand
+<span class="hljs-keyword">end</span>
+puts <span class="hljs-string">&quot;Without eval: <span class="hljs-subst">#{Time.now.to_f - time}</span>&quot;</span>
+
+time = Time.now.to_f
+<span class="hljs-number">1000000</span>.times <span class="hljs-keyword">do</span>
+  eval(<span class="hljs-string">&apos;rand+rand&apos;</span>)
+<span class="hljs-keyword">end</span>
+puts <span class="hljs-string">&quot;With eval: <span class="hljs-subst">#{Time.now.to_f - time}</span>&quot;</span>
+</code></pre>
+<pre><code>Without eval: 0.11499691009521484
+With eval: 6.516125917434692
+</code></pre><p>&#x6162;&#x4E86; 55 &#x500D;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7528; Ruby &#x81EA;&#x5E26;&#x7684; profiler &#x5BF9;&#x8FD9;&#x4E24;&#x6BB5;&#x4EE3;&#x7801;&#x8DD1;&#x4E00;&#x4E0B;&#x7684;&#x8BDD;&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x6CA1;&#x6709; eval&#xFF1A;</p>
+<pre><code>  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 62.15    17.03     17.03  1000000     0.02     0.02  nil#
+ 18.65    22.14      5.11        1  5110.00 27400.00  Integer#times
+ 12.77    25.64      3.50  2000000     0.00     0.00  Kernel#rand
+  6.42    27.40      1.76  1000000     0.00     0.00  Float#+
+  0.00    27.40      0.00        2     0.00     0.00  Time.now
+  0.00    27.40      0.00        2     0.00     0.00  Fixnum#fdiv
+  0.00    27.40      0.00        2     0.00     0.00  Numeric#quo
+  0.00    27.40      0.00        2     0.00     0.00  Time#to_f
+  0.00    27.40      0.00        1     0.00     0.00  Float#-
+  0.00    27.40      0.00        1     0.00     0.00  Float#to_s
+  0.00    27.40      0.00        2     0.00     0.00  IO#write
+  0.00    27.40      0.00        1     0.00     0.00  IO#puts
+  0.00    27.40      0.00        1     0.00     0.00  Kernel#puts
+  0.00    27.40      0.00        1     0.00     0.00  TracePoint#enable
+  0.00    27.40      0.00        1     0.00     0.00  TracePoint#disable
+  0.00    27.40      0.00        2     0.00     0.00  IO#set_encoding
+  0.00    27.40      0.00        2     0.00     0.00  Fixnum#+
+  0.00    27.40      0.00        2     0.00     0.00  Time#initialize
+  0.00    27.40      0.00        1     0.00 27400.00  #toplevel
+</code></pre><p>&#x6709; eval&#xFF1A;</p>
+<pre><code>  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 57.58    25.67     25.67  1000000     0.03     0.03  Kernel#eval
+ 16.02    32.81      7.14  1000000     0.01     0.04  nil#
+ 13.14    38.67      5.86        1  5860.00 44580.00  Integer#times
+  9.17    42.76      4.09  2000000     0.00     0.00  Kernel#rand
+  4.08    44.58      1.82  1000000     0.00     0.00  Float#+
+  0.00    44.58      0.00        2     0.00     0.00  Fixnum#fdiv
+  0.00    44.58      0.00        2     0.00     0.00  Numeric#quo
+  0.00    44.58      0.00        2     0.00     0.00  Time#to_f
+  0.00    44.58      0.00        1     0.00     0.00  Float#-
+  0.00    44.58      0.00        1     0.00     0.00  Float#to_s
+  0.00    44.58      0.00        2     0.00     0.00  IO#write
+  0.00    44.58      0.00        1     0.00     0.00  IO#puts
+  0.00    44.58      0.00        1     0.00     0.00  Kernel#puts
+  0.00    44.58      0.00        1     0.00     0.00  TracePoint#enable
+  0.00    44.58      0.00        1     0.00     0.00  TracePoint#disable
+  0.00    44.58      0.00        2     0.00     0.00  IO#set_encoding
+  0.00    44.58      0.00        2     0.00     0.00  Fixnum#+
+  0.00    44.58      0.00        2     0.00     0.00  Time#initialize
+  0.00    44.58      0.00        2     0.00     0.00  Time.now
+  0.00    44.58      0.00        1     0.00 44580.00  #toplevel
+</code></pre><p>&#x867D;&#x7136;&#x5728; profile &#x7684;&#x63BA;&#x548C;&#x4E0B;&#xFF0C;&#x5DEE;&#x8DDD;&#x88AB;&#x7F29;&#x5C0F;&#x5230;&#x4E86;&#x51E0;&#x500D;&#x4E4B;&#x5185;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x51FA; <code>eval</code> &#x51FD;&#x6570;&#x81EA;&#x884C;&#x7684;&#x8BED;&#x6CD5;&#x89E3;&#x6790;&#x6709;&#x591A;&#x4E48;&#x8017;&#x65F6;&#x3002;&#x6240;&#x4EE5;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684; <code>eval</code> &#x662F;&#x4E00;&#x6B21;&#x6027;&#x8FD0;&#x884C;&#x4E0E;&#x52A0;&#x8F7D;&#x65F6;&#x5019;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x90A3;&#x4E2A; Rest Client &#x7684;&#x4F8B;&#x5B50;&#x91CC;&#xFF0C;&#x95EE;&#x9898;&#x5E76;&#x4E0D;&#x5927;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x4F60;&#x7684; <code>eval</code> &#x662F;&#x88AB;&#x9891;&#x7E41;&#x8C03;&#x7528;&#x7684;&#x8BDD;&#xFF0C;&#x4F7F;&#x7528; <code>eval</code> &#x662F;&#x975E;&#x5E38;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x8FD9;&#x4E48;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x9759;&#x6001;&#x5206;&#x6790;&#x4E0E;&#x4EE3;&#x7801;&#x4F18;&#x5316;">&#x9759;&#x6001;&#x5206;&#x6790;&#x4E0E;&#x4EE3;&#x7801;&#x4F18;&#x5316;</h2>
+<p>&#x5728;&#x5206;&#x6790;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E24;&#x6BB5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">recursion_loop</span><span class="hljs-params">(<span class="hljs-keyword">int</span> count)</span></span>{
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Count: %d\n&quot;</span>, count);
+  <span class="hljs-keyword">if</span> (count == <span class="hljs-number">0</span>) {<span class="hljs-keyword">return</span>;}
+  recursion_loop(count - <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+  recursion_loop(<span class="hljs-number">100000</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recursion_loop</span><span class="hljs-params">(count)</span></span>
+  puts(<span class="hljs-string">&quot;Count: <span class="hljs-subst">#{count}</span>&quot;</span>)
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> count == <span class="hljs-number">0</span>
+  recursion_loop(count - <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+
+recursion_loop(<span class="hljs-number">100000</span>)
+</code></pre>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x7B2C;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x5728; C++ &#x4E2D;&#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x8FD0;&#x884C;&#xFF08;&#x6CE8;&#xFF1A;&#x9700;&#x8981;&#x5F00;&#x542F; -O2 &#x7F16;&#x8BD1;&#x9009;&#x9879;&#xFF09;&#xFF0C;&#x800C;&#x7B2C;&#x4E8C;&#x6BB5;&#x4EE3;&#x7801;&#x5728; Ruby &#x4E0B;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code>/Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts&apos;: stack level too deep (SystemStackError)
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+     ... 10908 levels...
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop&apos;
+    from /Users/Delton/RubymineProjects/untitled/script4.rb:7:in `&lt;top (required)&gt;&apos;
+    from -e:1:in `load&apos;
+    from -e:1:in `&lt;main&gt;&apos;
+</code></pre><p>&#x62A5;&#x9519;&#x7684;&#x539F;&#x56E0;&#x5F88;&#x663E;&#x7136;&#xFF0C;&#x6808;&#x592A;&#x6DF1;&#x4E86;&#x3002;&#x8FD9;&#x4E2A;&#x7528;&#x9012;&#x5F52;&#x5B9E;&#x73B0;&#x7684;&#x5FAA;&#x73AF;&#xFF0C;&#x9700;&#x8981;&#x5EFA;&#x4E00;&#x4E2A;&#x6DF1;&#x5EA6;&#x9AD8;&#x8FBE; 100000 &#x5C42;&#x6DF1;&#x6808;&#x3002;&#x4E00;&#x822C;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x90FD;&#x4E0D;&#x4F1A;&#x5141;&#x8BB8;&#x8FD9;&#x4E48;&#x6DF1;&#x7684;&#x6808;&#x3002;&#x8BF6;&#xFF1F;&#x7B49;&#x4E00;&#x4E0B;&#xFF0C;&#x90A3;&#x4E3A;&#x4EC0;&#x4E48;&#x5728; C++ &#x4E2D;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x4F60;&#x7684; C++ &#x7F16;&#x8BD1;&#x5668;&#x53D1;&#x73B0;&#x4E86;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x300C;&#x5C3E;&#x9012;&#x5F52;&#x300D;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x300C;&#x5C3E;&#x9012;&#x5F52;&#x4F18;&#x5316;&#x300D;&#x3002;&#x5C3E;&#x9012;&#x5F52;&#x53EF;&#x4EE5;&#x88AB;&#x4F18;&#x5316;&#x6210;&#x4E00;&#x4E2A;&#x975E;&#x9012;&#x5F52;&#x5F62;&#x5F0F;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x90A3;&#x4E48;&#x6DF1;&#x7684;&#x6808;&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F; <code>&#x8BCD;&#x6CD5;&#x5206;&#x6790; -&gt; &#x8BED;&#x6CD5;&#x5206;&#x6790; -&gt; &#x8BED;&#x4E49;&#x68C0;&#x67E5; -&gt; &#x751F;&#x6210;&#x8BED;&#x6CD5;&#x6811; -&gt; &#x4EE3;&#x7801;&#x4F18;&#x5316; -&gt; &#x751F;&#x6210;&#x76EE;&#x6807;&#x4EE3;&#x7801;/&#x6267;&#x884C;</code> &#x7684;&#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x6B65;&#x3002;Ruby &#x4E2D;&#x4E5F;&#x6709;&#x5C3E;&#x9012;&#x5F52;&#x4F18;&#x5316;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x4F46;&#x9ED8;&#x8BA4;&#x4E0D;&#x5F00;&#x542F;&#x3002;&#x5F00;&#x542F;&#x7684;&#x8BDD;&#x65B9;&#x6CD5;&#x4E5F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230; <code>InstrctionSequence</code> &#x8FD9;&#x4E2A;&#x7F16;&#x8BD1;&#x4E2D;&#x95F4;&#x7801;&#x7684;&#x7C7B;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-ruby"><span class="hljs-symbol">RubyVM:</span><span class="hljs-symbol">:InstructionSequence</span>.compile_option = {
+    <span class="hljs-symbol">:tailcall_optimization</span> =&gt; <span class="hljs-keyword">true</span>,
+    <span class="hljs-symbol">:trace_instruction</span> =&gt; <span class="hljs-keyword">false</span>
+}
+
+source = &lt;&lt;-end_source
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recursion_loop</span><span class="hljs-params">(count)</span></span>
+    puts(<span class="hljs-string">&quot;Count: \#{count}&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> count == <span class="hljs-number">0</span>
+    recursion_loop(count - <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">end</span>
+  recursion_loop(<span class="hljs-number">100000</span>)
+end_source
+
+<span class="hljs-symbol">RubyVM:</span><span class="hljs-symbol">:InstructionSequence</span>.new(source).eval
+</code></pre>
+<p><strong>&#x6CE8;&#xFF1A;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x8FD9;&#x91CC;&#x5F00;&#x542F;&#x7684;&#x662F;&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;&#xFF0C;&#x5C3E;&#x8C03;&#x7528;&#x662F;&#x5C3E;&#x9012;&#x5F52;&#x7684;&#x8D85;&#x96C6;&#xFF0C;&#x5F00;&#x542F;&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;&#x4E0D;&#x6B62;&#x4F1A;&#x4F18;&#x5316;&#x5C3E;&#x9012;&#x5F52;&#x3002;</strong></p>
+<p>&#x4F46;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x5C3E;&#x9012;&#x5F52;&#x4EE3;&#x7801;&#x5728;&#x5373;&#x4F7F;&#x5F00;&#x542F;&#x4F18;&#x5316;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x6837;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x4F18;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recursion_loop</span><span class="hljs-params">(count)</span></span>
+  puts(<span class="hljs-string">&quot;Count: <span class="hljs-subst">#{count}</span>&quot;</span>)
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> count == <span class="hljs-number">0</span>
+  eval(<span class="hljs-string">&apos;recursion_loop(count - 1)&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+recursion_loop(<span class="hljs-number">100000</span>)
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x628A;&#x4E00;&#x4E2A;&#x660E;&#x660E;&#x662F;&#x5C3E;&#x9012;&#x5F52;&#x7684;&#x60C5;&#x51B5;&#x7834;&#x574F;&#x6210;&#x4E86;&#x975E;&#x5C3E;&#x9012;&#x5F52;&#x3002;&#x56E0;&#x4E3A;&#x7F16;&#x8BD1;&#x5668;&#x9759;&#x6001;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#x6839;&#x672C;&#x4E0D;&#x77E5;&#x9053;&#x4F60; <code>eval</code> &#x91CC;&#x662F;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x3002;&#x600E;&#x4E48;&#x53EF;&#x80FD;&#x7ED9;&#x4F60;&#x4F18;&#x5316;&#xFF1F;</p>
+<p>&#x867D;&#x7136;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x975E;&#x5E38;&#x6781;&#x7AEF;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x4E0D;&#x6B62; <code>eval</code>&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-ruby">@next_recursion = proc { |count|
+  recursion_loop(count - <span class="hljs-number">1</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recursion_loop</span><span class="hljs-params">(count)</span></span>
+  puts(<span class="hljs-string">&quot;Count: <span class="hljs-subst">#{count}</span>&quot;</span>)
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> count == <span class="hljs-number">0</span>
+  @next_recursion.call(count)
+<span class="hljs-keyword">end</span>
+
+recursion_loop(<span class="hljs-number">100000</span>)
+</code></pre>
+<p>&#x5927;&#x591A;&#x6570;&#x52A8;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x88AB;&#x9759;&#x6001;&#x5206;&#x6790;&#xFF0C;&#x4EE5;&#x63D0;&#x4F9B;&#x8DB3;&#x591F;&#x7684;&#x4F18;&#x5316;&#x3002;&#x4EE5;&#x81F3;&#x4E8E;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#x7684;&#x4EE3;&#x7801;&#x4F18;&#x5316;&#x4E5F;&#x4E00;&#x76F4;&#x662F;&#x4E00;&#x5927;&#x96BE;&#x70B9;&#x3002;</p>
+<h2 id="&#x5BF9;-eval-&#x9B54;&#x6CD5;&#x7684;&#x601D;&#x8003;">&#x5BF9; eval &#x9B54;&#x6CD5;&#x7684;&#x601D;&#x8003;</h2>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x8C08;&#x4E00;&#x8C08;&#x5BF9;&#x300C;eval &#x9B54;&#x6CD5;&#x300D;&#x7684;&#x601D;&#x8003;&#x3002;<code>eval</code> &#x5728;&#x5143;&#x7F16;&#x7A0B;&#x91CC;&#x4E5F;&#x4E00;&#x76F4;&#x5C5E;&#x4E8E;&#x63A5;&#x8FD1;&#x4E8E;&#x7981;&#x672F;&#x7684;&#x90A3;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x5C31;&#x597D;&#x50CF;&#x6838;&#x6B66;&#x5668;&#x4E00;&#x6837;&#x53EF;&#x6015;&#x3002;&#x5728;&#x7528; <code>eval</code> &#x7684;&#x65F6;&#x5019;&#x8981;&#x5145;&#x5206;&#x8BA4;&#x8BC6;&#x5230;&#x53EF;&#x80FD;&#x5E26;&#x6765;&#x7684;&#x540E;&#x679C;&#xFF0C;&#x624D;&#x80FD;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x3002;&#x6838;&#x56FD;&#x5BB6;&#x7684;&#x6218;&#x4E89;&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x975E;&#x8981;&#x4E92;&#x76F8;&#x4E22;&#x6838;&#x6B66;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x5E38;&#x89C4;&#x6B66;&#x5668;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x7684;&#xFF0C;&#x4E0D;&#x5FC5;&#x5982;&#x6B64;&#x5927;&#x52A8;&#x5E72;&#x6208;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#x524D;&#x9762; rest-client &#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528; <code>eval</code>&#xFF1A;</p>
+<pre><code class="lang-ruby">POSSIBLE_VERBS = [<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;put&apos;</span>, <span class="hljs-string">&apos;post&apos;</span>, <span class="hljs-string">&apos;delete&apos;</span>]
+POSSIBLE_VERBS.each <span class="hljs-keyword">do</span> |m|
+  define_method(m) <span class="hljs-keyword">do</span> |path, *args, &amp;b|
+    r[path].send(m, *args, &amp;b)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x3002;&#x4E0D;&#x8FC7; <code>define_method</code> &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x7ED9;&#x4EE3;&#x7801;&#x5E26;&#x6765;&#x9759;&#x6001;&#x5206;&#x6790;&#xFF0C;&#x800C;&#x8FD9;&#x53C8;&#x662F;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x4E00;&#x6B21;&#x6027;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x63D0;&#x5347;&#x662F;&#x5FAE;&#x4E4E;&#x5176;&#x5FAE;&#x7684;&#x3002;&#x6240;&#x4EE5; rest-client &#x7684; <code>eval</code> &#x5B9E;&#x73B0;&#x5E76;&#x8C08;&#x4E0D;&#x4E0A; evil&#x3002;</p>
+<p><code>eval</code> &#x88AB;&#x90A3;&#x4E48;&#x591A;&#x8BED;&#x8A00;&#x81F3;&#x4ECA;&#x6CBF;&#x7528;&#xFF0C;&#x5176;&#x5DE8;&#x5927;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x5E26;&#x6765;&#x7684;&#x4FBF;&#x5229;&#x662F;&#x6BCB;&#x5EB8;&#x7F6E;&#x7591;&#x7684;&#x3002;&#x53EA;&#x662F;&#x8BF4;&#xFF0C;&#x4F7F;&#x7528; <code>eval</code> &#x5305;&#x62EC;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x5143;&#x7F16;&#x7A0B;&#x6280;&#x5DE7;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x8981;&#x5145;&#x5206;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x4E48;&#x505A;&#x7684;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x540E;&#x679C;&#xFF0C;&#x4EE5;&#x514D;&#x83BD;&#x649E;&#x778E;&#x5199;&#xFF0C;&#x8BEF;&#x4F24;&#x81EA;&#x5DF1;&#x3002;</p>
+<h2 id="&#x5F69;&#x86CB;">&#x5F69;&#x86CB;</h2>
+<p>&#x5728; <a href="https://leetcode.com/problems/valid-parentheses/" target="_blank">Leetcode #20</a> &#x62EC;&#x53F7;&#x5339;&#x914D;&#x95EE;&#x9898;&#x91CC;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x7528; JavaScript &#x7684; <code>eval</code> &#x5B9E;&#x73B0;&#x7684;&#x9B54;&#x6CD5;&#x5199;&#x6CD5;&#xFF0C;&#x975E;&#x5E38;&#x6709;&#x8DA3;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x5F00;&#x5FC3;&#x5F00;&#x5FC3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * @param {string} s
+ * @return {boolean}
+ */</span>
+<span class="hljs-keyword">var</span> isValid = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    s = s.replace(<span class="hljs-regexp">/\(/g</span>, <span class="hljs-string">&apos;+(&apos;</span>);
+    s = s.replace(<span class="hljs-regexp">/\[/g</span>, <span class="hljs-string">&apos;+[&apos;</span>);
+    s = s.replace(<span class="hljs-regexp">/\{/g</span>, <span class="hljs-string">&apos;+{0:&apos;</span>);
+    s = s.replace(<span class="hljs-regexp">/\)/g</span>, <span class="hljs-string">&apos;+0)&apos;</span>);
+    s = s.replace(<span class="hljs-regexp">/\]/g</span>, <span class="hljs-string">&apos;+0]&apos;</span>);
+    s = s.replace(<span class="hljs-regexp">/\}/g</span>, <span class="hljs-string">&apos;+0}&apos;</span>);
+    <span class="hljs-keyword">try</span>{
+        <span class="hljs-built_in">eval</span>(s);
+    } <span class="hljs-keyword">catch</span>(err) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"🟩 Is eval evil?","level":"1.11.4","depth":2,"next":{"title":"🟩 练习：猴子补丁","level":"1.11.5","depth":2,"ref":"","articles":[]},"previous":{"title":"🟦 method_mssing","level":"1.11.3","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter09/is_eval_evil.md","mtime":"2020-01-16T04:40:43.948Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-16T04:41:35.930Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
