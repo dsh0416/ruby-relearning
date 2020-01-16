@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    clap (1.0.0)
+    cutest (1.2.3)
+      clap
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cutest (~> 1.2.3)
+
+BUNDLED WITH
+   2.1.2
