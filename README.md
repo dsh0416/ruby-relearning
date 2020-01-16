@@ -4,6 +4,11 @@
 
 一本关于重新思考编程入门的教程。
 
+## Build Status
+
+![CI Tests](https://github.com/dsh0416/ruby-relearning/workflows/tests/badge.svg)
+![Deployment](https://github.com/dsh0416/ruby-relearning/workflows/deploy/badge.svg)
+
 ## 如何编译这本书？
 
 这本书使用 GitBook 标准编写。编译这本书需要有 Node.js 的环境。
