@@ -6,8 +6,8 @@
 
 ## Build Status
 
-![CI Tests](https://github.com/dsh0416/ruby-relearning/workflows/tests/badge.svg)
-![Deployment](https://github.com/dsh0416/ruby-relearning/workflows/deploy/badge.svg)
+[![CI Tests](https://github.com/dsh0416/ruby-relearning/workflows/tests/badge.svg)](https://github.com/dsh0416/ruby-relearning/actions?query=workflow%3Atests)
+[![Deployment](https://github.com/dsh0416/ruby-relearning/workflows/deploy/badge.svg)](https://github.com/dsh0416/ruby-relearning/actions?query=workflow%3Adeploy)
 
 ## 如何编译这本书？
 
