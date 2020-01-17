@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "custom-js-css"
+  ],
+  "pluginsConfig": {
+    "custom-js-css": {
+      "js": [
+        "./js/twemoji.min.js"
+      ]
+    }
+  }
+}
