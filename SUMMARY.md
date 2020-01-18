@@ -91,4 +91,4 @@
   * 🟦 为 Ruby 提交 Patch
 * 后记
 * 附录一：怎么安装 Linux？
-* 附录二：术语表
+* [附录二：术语表](/appendix/glossary.md)
