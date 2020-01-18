@@ -27,7 +27,14 @@ MRI 代指 Matz's Ruby Interpreter，即 Ruby 创始人松本行弘最早实现�
 
 ## 安装方法
 
-### 写给 Windows 用户
+### Windows 用户
+
+在 Windows 上安装 Ruby 最简单的方式是 [RubyInstaller](https://rubyinstaller.org/)。在本书的编写过程中，我们会测试书中所有涉及到的程序在 Windows 上的兼容性。但由于 Ruby 的第三方依赖，特别是一些设计给 *NIX 服务器的依赖程序，可能没有测试在 Windows 上的兼容性，从而可能在使用上会遇到一定的困难。
+
+一些教程不推荐新手在 Windows 上开发 Ruby。但事实上，Ruby 的标准库对于 Windows 的兼容性还是相当良好的。如果没有人在 Windows 上使用 Ruby，那么 Ruby 运行在 Windows 上的问题会变得更多，这是一个恶性循环。但是对于初学者，使用 Linux/macOS 进行开发依然是我个人推荐的。主要问题是，初学者缺乏对环境问题处理的经验，遇到问题往往会不知所措。大多数服务器软件的生产环境更愿意使用自由的 Linux 操作系统，而使用 Ruby 开发服务器应用是最常见的用途，使用和生产环境一致的环境，至少是 *NIX 环境能有效避免问题发生的概率。
+
+关于 PC 用户如何选择和安装 Linux 发行版，本书单独开设附录章节来描述，请参阅附录一。另外，在 Windows 10 中可以使用 Windows Subsystem for Linux (WSL) 来产生一个无缝的 Linux 环境。详情请参阅微软的 [WSL 官方文档](https://docs.microsoft.com/en-us/windows/wsl/about)。
+
 
 ### *NIX 用户（Linux、macOS、BSD 用户）
 
@@ -114,9 +121,3 @@ sudo make install
 #### 内置包管理器
 
 使用例如 Ubuntu、Debian 内置的 `apt` 或者 CentOS、Fedora 内置的 `dnf` 或类似方法也可以很方便安装 Ruby。但是，大多数操作系统内建的软件源常有版本滞后、缺少组件的问题。如无必要，不推荐新手使用这样的安装方法。但如果你有一个可控、可信、维护良好的软件源，这也是一个不增加复杂度安装 Ruby 的好方法。
-
-### Windows 用户
-
-在 Windows 上安装 Ruby 最简单的方式是 [RubyInstaller](https://rubyinstaller.org/)。在本书的编写过程中，我们会测试书中所有涉及到的程序在 Windows 上的兼容性。但由于 Ruby 的第三方依赖，特别是一些设计给 *NIX 服务器的依赖程序，可能没有测试在 Windows 上的兼容性，从而可能在使用上会遇到一定的困难。
-
-一些教程不推荐新手在 Windows 上开发 Ruby。但事实上，Ruby 的标准库对于 Windows 的兼容性还是相当良好的。如果没有人在 Windows 上使用 Ruby，那么 Ruby 运行在 Windows 上的问题会变得更多，这是一个恶性循环。如果你程序的实际运行环境在 Linux 上，让开发环境和实际运行环境接近确实会比较好。在 Windows 10 中可以使用 Windows Subsystem for Linux (WSL) 来产生一个无缝的 Linux 环境。详情请参阅微软的 [WSL 官方文档](https://docs.microsoft.com/en-us/windows/wsl/about)。
