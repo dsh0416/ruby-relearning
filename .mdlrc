@@ -1,0 +1,7 @@
+all
+# Chinese characters have to be in one line.
+exclude_rule 'MD013'
+# Punctuation in header is allowed
+exclude_rule 'MD026'
+# Emphasis usage is allowed
+exclude_rule 'MD036'
