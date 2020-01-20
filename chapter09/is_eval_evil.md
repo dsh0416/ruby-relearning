@@ -21,7 +21,7 @@ loop do
 end
 ```
 
-```
+```text
 Expression: 1+1
 result: 2
 Expression: 2+2
@@ -34,7 +34,7 @@ result: 6
 
 Awesome! 这段程序实现了全部四则运算的功能！只不过，这东西实现了 **不止** 四则运算的功能，事实上，它能处理任意 Ruby 语句，实际上这已经是一个 REPL（Read-Eval-Print Loop）了。我们可以运行一些「危险」的代码，比如：
 
-```
+```text
 Expression: exit
 Process exit with code 0
 ```
@@ -89,7 +89,7 @@ end
 puts "With eval: #{Time.now.to_f - time}"
 ```
 
-```
+```text
 Without eval: 0.11499691009521484
 With eval: 6.516125917434692
 ```
@@ -98,7 +98,7 @@ With eval: 6.516125917434692
 
 没有 eval：
 
-```
+```text
   %   cumulative   self              self     total
  time   seconds   seconds    calls  ms/call  ms/call  name
  62.15    17.03     17.03  1000000     0.02     0.02  nil#
@@ -124,7 +124,7 @@ With eval: 6.516125917434692
 
 有 eval：
 
-```
+```text
   %   cumulative   self              self     total
  time   seconds   seconds    calls  ms/call  ms/call  name
  57.58    25.67     25.67  1000000     0.03     0.03  Kernel#eval
@@ -181,21 +181,21 @@ recursion_loop(100000)
 
 为什么第一段代码在 C++ 中可以正确运行（注：需要开启 -O2 编译选项），而第二段代码在 Ruby 下会报错。
 
-```
+```text
 /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts': stack level too deep (SystemStackError)
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	 ... 10908 levels...
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
-	from /Users/Delton/RubymineProjects/untitled/script4.rb:7:in `<top (required)>'
-	from -e:1:in `load'
-	from -e:1:in `<main>'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+   ... 10908 levels...
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:4:in `recursion_loop'
+  from /Users/Delton/RubymineProjects/untitled/script4.rb:7:in `<top (required)>'
+  from -e:1:in `load'
+  from -e:1:in `<main>'
 ```
 
 报错的原因很显然，栈太深了。这个用递归实现的循环，需要建一个深度高达 100000 层深栈。一般的运行时都不会允许这么深的栈。诶？等一下，那为什么在 C++ 中这段代码可以正常运行呢？因为你的 C++ 编译器发现了这是一个「尾递归」，可以进行「尾递归优化」。尾递归可以被优化成一个非递归形式，自然就不需要那么深的栈了。

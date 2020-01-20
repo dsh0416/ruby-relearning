@@ -45,7 +45,6 @@ MRI 代指 Matz's Ruby Interpreter，即 Ruby 创始人松本行弘最早实现�
 
 关于 PC 用户如何选择和安装 Linux 发行版，本书单独开设附录章节来描述，请参阅[《附录一：新手如何安装 Linux 开发版？》](/appendix/install-linux.md)。另外，在 Windows 10 中可以使用 Windows Subsystem for Linux (WSL) 来产生一个无缝的 Linux 环境。详情请参阅微软的 [WSL 官方文档](https://docs.microsoft.com/en-us/windows/wsl/about)。
 
-
 ### *NIX 用户（Linux、macOS、BSD 用户）
 
 #### RVM
