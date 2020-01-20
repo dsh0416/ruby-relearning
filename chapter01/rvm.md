@@ -56,4 +56,5 @@ ruby -v
 ruby '2.7.0'
 ```
 
-RVM 就会在 shell 切换到这个目录下之后自动切换当前的 Ruby 版本。Gemfile 是 Bundler 提供依赖管理的重要文件，有关于这方面的功能，我们会在「第六周：Ruby 工程化入门」中重点介绍。
+RVM 就会在 shell 切换到这个目录下之后自动切换当前的 Ruby 版本。这样的设置还有一个好处，就是著名的 Ruby 托管平台 [Heroku](https://heroku.com) 也是使用这一方法来切换 Ruby 版本的。如果之后你需要将自己制作的网站托管到 Heroku 上的话，可以利用这一特性自动设置 Heroku 上的 Ruby 版本。
+Gemfile 是 Bundler 提供依赖管理的重要文件，有关于这方面的功能，我们会在「第六周：Ruby 工程化入门」中重点介绍。
