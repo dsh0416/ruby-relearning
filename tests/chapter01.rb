@@ -1,5 +1,6 @@
 require 'stringio'
-require "minitest/autorun"
+require 'open3'
+require 'minitest/autorun'
 
 def capture_stdout(&block)
   original_stdout = $stdout
@@ -116,5 +117,20 @@ class TestChapter01 < Minitest::Test
     b = 1
     c = a + b
     assert_equal c, 2
+  end
+
+  def test_consts
+    assert_equal `ruby -e "CONST_A = 'foo';CONST_A = 'bar';puts CONST_A"`, "bar\n"
+  end
+
+  def test_freeze
+    assert_raises FrozenError do
+      a = 'foo'.freeze
+      a << 'bar'
+    end
+
+    a = 'foo'.freeze
+    a = 'bar'
+    assert_equal(a, 'bar')
   end
 end
