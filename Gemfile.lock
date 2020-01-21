@@ -1,9 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    clap (1.0.0)
-    cutest (1.2.3)
-      clap
     kramdown (2.1.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -12,6 +9,7 @@ GEM
       kramdown-parser-gfm (~> 1.0)
       mixlib-cli (~> 2.1, >= 2.1.1)
       mixlib-config (>= 2.2.1, < 4)
+    minitest (5.14.0)
     mixlib-cli (2.1.5)
     mixlib-config (3.0.6)
       tomlrb
@@ -22,8 +20,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cutest (~> 1.2.3)
   mdl (~> 0.8.0)
+  minitest (~> 5.14.0)
   rake (~> 13.0.0)
 
 BUNDLED WITH
