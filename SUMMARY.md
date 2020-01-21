@@ -94,3 +94,4 @@
 * 后记
 * [附录一：新手如何安装 Linux 开发版？](/appendix/install-linux.md)
 * [附录二：术语表](/appendix/glossary.md)
+* [附录三：参考答案](/appendix/answers.md)
