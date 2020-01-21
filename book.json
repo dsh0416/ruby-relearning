@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "custom-js-css"
+    "custom-js-css",
+    "mathjax"
   ],
   "pluginsConfig": {
     "custom-js-css": {
