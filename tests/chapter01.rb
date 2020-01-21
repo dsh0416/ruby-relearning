@@ -67,4 +67,23 @@ class TestChapter01 < Minitest::Test
   def test_bool_ops_practice
     assert_equal (true && (true and not false) or !false || false), true
   end
+
+  # Chapter 01, Variables
+  def test_int_ops
+    assert_equal 1 + 1, 2
+    assert_equal 1 - 5, -4
+    assert_equal 3 * 7, 21
+    assert_equal 6 / 2, 3
+    assert_equal 5 / 2, 2
+    assert_equal 5 % 2, 1
+    assert_equal -5 % 2, 1
+
+    assert_equal 5 % -2, -1
+    assert_equal -5 % -2, -1
+    assert_raises ZeroDivisionError do
+      3 / 0
+    end
+    assert_equal 10000000000000000000 * 10000000000000000000, 100000000000000000000000000000000000000
+    assert_equal 2**256, 115792089237316195423570985008687907853269984665640564039457584007913129639936 
+  end
 end
