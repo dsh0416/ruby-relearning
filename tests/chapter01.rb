@@ -76,14 +76,45 @@ class TestChapter01 < Minitest::Test
     assert_equal 6 / 2, 3
     assert_equal 5 / 2, 2
     assert_equal 5 % 2, 1
-    assert_equal -5 % 2, 1
+    assert_equal (-5 % 2), 1
 
     assert_equal 5 % -2, -1
-    assert_equal -5 % -2, -1
+    assert_equal (-5 % -2), -1
     assert_raises ZeroDivisionError do
       3 / 0
     end
     assert_equal 10000000000000000000 * 10000000000000000000, 100000000000000000000000000000000000000
     assert_equal 2**256, 115792089237316195423570985008687907853269984665640564039457584007913129639936 
+  end
+
+  def test_local_variables
+    a = 1
+    assert_equal a + 1, 2
+    assert_equal a + 3, 4
+    a = 2
+    assert_equal a + 1, 3
+    assert_equal a + 3, 5
+    assert_raises SyntaxError do
+      eval('2 = a')
+    end
+  end
+
+  def test_local_variables_answers
+    assert_equal(capture_stdout do
+      a = 1
+      b = 1
+      puts a + b
+    end, "2\n")
+
+    assert_equal(capture_stdout do
+      a = 1
+      b = 1
+      puts a * b
+    end, "1\n")
+
+    a = 1
+    b = 1
+    c = a + b
+    assert_equal c, 2
   end
 end
