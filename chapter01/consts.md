@@ -2,24 +2,28 @@
 
 **让人出乎意料的是：Ruby 并没有真正意义的常量**
 
+这句话一出口，必然有人不服。「Ruby 里全大写的关键字，不就是常量吗？」此言差矣。虽然 Ruby 中的全大写的关键字会被作为常量来识别，但是 Ruby 中的常量本质上还是变量，因为你依然可以给常量任意赋值，只是会触发警告。
+
 ```ruby
 CONST_A = 'foo'
 CONST_A = 'bar' # => warning: already initialized constant CONST_A
 puts CONST_A # 'bar'
 ```
 
+另一个常常被人混淆的概念则是 Ruby 中的 `Object#freeze` 方法。「把变量冻结后我就不能编辑了，这难道不是常量吗？」
+
 ```ruby
 a = 'foo'.freeze
 a << 'bar' # FrozenError (can't modify frozen String: "a")
 ```
+
+这同样不是常量，而是另一个名词「不变量（immutable）」。我们可以看下面的例子，只要不是编辑对象本身，我依然可以给冻结后的对象赋予一个完全的新值。
 
 ```ruby
 a = 'foo'.freeze
 a = 'bar'
 puts a # 'bar'
 ```
-
-## 可变量 / 不变量
 
 虽然可变量（mutable）、不变量（immutable）听起来和变量（variable）以及常量（const）听起来非常像，但它们是完全不一样的东西。我们要把数据的存储拆成两个部分来看，代号和内容。变量、常量说的是代号所指的对象的可变还是不可变；而可变量、不变量指的是指向的那个对象里面内容物的可变还是不可变。
 
