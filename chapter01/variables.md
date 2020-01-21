@@ -2,11 +2,66 @@
 
 ## 基本算数
 
+
+
 ### 整数运算
 
 ### 浮点数运算
 
-### 布尔运算
+### 布尔（逻辑）运算
+
+比起上面两种类型的运算，布尔运算可能是最简单的，但却是大家日常最不熟悉的。
+
+布尔运算就是关于「是」「非」的计算，在 Ruby 中这两者的关键字是 `true` 和 `false`。布尔运算的三个最基本运算是「与（and）」、「或（or）」、「非（not）」。
+
+- 与运算（`and`）就是当算符两侧皆为 `true` 那么结果还是 `true`，否则为 `false`。
+- 或运算（`or`）当算符两侧只要有一个操作数为 `true` 那么结果就为 `true`。
+- 非运算（`not`）只接受一个操作数，将 `true` 变成 `false`，将 `false` 变成 `true`。
+
+用 Ruby 代码写如下，大家可以打开 irb 试一下：
+
+```ruby
+
+true and true # => true
+true and false # => false
+false and true # => false
+false and false # => false
+
+true or true # => true
+true or false # => true
+false or true # => true
+false or false # => false
+
+not true # => false
+not false # => true
+```
+
+Ruby 中的 `and` `or` `not` 也可以由符号 `&&` `||` `!` 来替代。
+
+```ruby
+true && true # => true
+true && false # => false
+false && true # => false
+false && false # => false
+
+true || true # => true
+true || false # => true
+false || true # => true
+false || false # => false
+
+!true # => false
+!false # => true
+```
+
+**特别注意不是 `&` 和 `|`，这两个是二进制运算符，和布尔运算有一定差异，我们会在之后具体介绍这两个运算。
+
+逻辑运算也可以使用括号进行优先级的组合，如果没有括号，默认的计算优先级是 `not` 优先于 `and` 优先于 `or`。一个好记的优先级口诀是「not at all. (not and or)」。
+
+尝试猜测下面这句代码的结果，打开 irb 试一试，检验自己的理解是否正确。
+
+```ruby
+true && (true and not false) or !false || false
+```
 
 ## 局部变量
 
