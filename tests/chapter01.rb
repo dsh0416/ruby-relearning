@@ -1,5 +1,6 @@
 require 'stringio'
-require "minitest/autorun"
+require 'open3'
+require 'minitest/autorun'
 
 def capture_stdout(&block)
   original_stdout = $stdout
@@ -87,6 +88,7 @@ class TestChapter01 < Minitest::Test
     assert_equal 2**256, 115792089237316195423570985008687907853269984665640564039457584007913129639936 
   end
 
+  # Chapter 01, Variables
   def test_local_variables
     a = 1
     assert_equal a + 1, 2
@@ -99,6 +101,7 @@ class TestChapter01 < Minitest::Test
     end
   end
 
+  # Chapter 01, Variables (Answers)
   def test_local_variables_answers
     assert_equal(capture_stdout do
       a = 1
@@ -116,5 +119,22 @@ class TestChapter01 < Minitest::Test
     b = 1
     c = a + b
     assert_equal c, 2
+  end
+
+  # Chapter 01, Consts
+  def test_consts
+    assert_equal `ruby -e "CONST_A = 'foo';CONST_A = 'bar';puts CONST_A"`, "bar\n"
+  end
+
+  # Chapter 01, Consts
+  def test_freeze
+    assert_raises FrozenError do
+      a = 'foo'.freeze
+      a << 'bar'
+    end
+
+    a = 'foo'.freeze
+    a = 'bar'
+    assert_equal(a, 'bar')
   end
 end
