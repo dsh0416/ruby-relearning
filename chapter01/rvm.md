@@ -57,4 +57,7 @@ ruby '2.7.0'
 ```
 
 RVM 就会在 shell 切换到这个目录下之后自动切换当前的 Ruby 版本。这样的设置还有一个好处，就是著名的 Ruby 托管平台 [Heroku](https://heroku.com) 也是使用这一方法来切换 Ruby 版本的。如果之后你需要将自己制作的网站托管到 Heroku 上的话，可以利用这一特性自动设置 Heroku 上的 Ruby 版本。
+
 Gemfile 是 Bundler 提供依赖管理的重要文件，有关于这方面的功能，我们会在「第六周：Ruby 工程化入门」中重点介绍。
+
+由于 Ruby 在设置版本上并没有官方制定的标准。管理项目版本依赖于不同版本管理工具的具体实现。在 RVM 中除了上面的方法，还有 4 种方法可以设置项目的 Ruby 版本。具体可以参考 RVM 的 [Typical RVM Project Workflow](https://rvm.io/workflow/projects)。其中使用 `.ruby-version` 设置 Ruby 版本的方法可以同时在 RVM 和另一个在 Ruby 上常用的版本管理工具 rbenv 通用。
