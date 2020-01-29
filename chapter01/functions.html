@@ -1443,6 +1443,7 @@
 <p><del>&#x5F53;&#x6211;&#x4EEC;&#x628A;&#x9700;&#x6C42;&#x3001;&#x6BD4;&#x8428;&#x548C;&#x5496;&#x5561;&#x6254;&#x7ED9;&#x7A0B;&#x5E8F;&#x5458;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x5C31;&#x4F1A;&#x8F93;&#x51FA;&#x7A0B;&#x5E8F;&#x3002;</del></p>
 <p><del>&#x4ECE;&#x8FD9;&#x4E2A;&#x89D2;&#x5EA6;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x4E0D;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5417;&#xFF1F;</del></p>
 <h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;">&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2>
+<p>&#x51FD;&#x6570;&#x7684;&#x4E09;&#x5927;&#x8981;&#x7D20;&#xFF1A;&#x5B9A;&#x4E49;&#x57DF;&#x3001;&#x503C;&#x57DF;&#x548C;&#x6620;&#x5C04;&#x65B9;&#x6CD5;&#x3002;&#x5BF9;&#x5E94;&#x5230;&#x7A0B;&#x5E8F;&#x4E2D;&#x5C31;&#x662F;&#x53C2;&#x6570;&#x3001;&#x8FD4;&#x56DE;&#x503C;&#x548C;&#x4EE3;&#x7801;&#x5757;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x4ECE;&#x8FD9;&#x4E09;&#x5757;&#x6765;&#x7406;&#x89E3; Ruby &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x3002;</p>
 <pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">succ</span><span class="hljs-params">(x)</span></span>
   x += <span class="hljs-number">1</span>
 <span class="hljs-keyword">end</span>
@@ -1459,6 +1460,16 @@
 }
 </code></pre>
 <p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x662F;&#x975E;&#x6CD5;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; <code>void_function()</code> &#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x8BA9;&#x5176;&#x7ED3;&#x679C;&#x8D4B;&#x503C;&#x7ED9; <code>x</code>&#x3002;</p>
+<h3 id="&#x8C46;&#x77E5;&#x8BC6;&#xFF1A;&#x5B9A;&#x4E49;&#x597D;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;&#x5417;&#xFF1F;">&#x8C46;&#x77E5;&#x8BC6;&#xFF1A;&#x5B9A;&#x4E49;&#x597D;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;&#x5417;&#xFF1F;</h3>
+<p>&#x867D;&#x7136;&#x8FD9;&#x4EF6;&#x4E8B;&#x6BD4;&#x8F83;&#x4E0D;&#x53EF;&#x80FD;</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span></span>
+  <span class="hljs-string">&apos;bar&apos;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">undef</span> foo
+
+foo <span class="hljs-comment"># =&gt; NameError</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1502,7 +1513,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"🟩 函数","level":"1.3.6","depth":2,"next":{"title":"🟩 条件与循环","level":"1.3.7","depth":2,"path":"chapter01/conditions.md","ref":"chapter01/conditions.md","articles":[]},"previous":{"title":"🟦 如何理解 Ruby 变量与常量","level":"1.3.5","depth":2,"path":"chapter01/consts.md","ref":"chapter01/consts.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["custom-js-css","mathjax"],"pluginsConfig":{"custom-js-css":{"js":["./js/twemoji.min.js","./js/emoji.js"],"css":["./css/emoji.css"]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter01/functions.md","mtime":"2020-01-25T03:51:25.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-25T03:52:16.932Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🟩 函数","level":"1.3.6","depth":2,"next":{"title":"🟩 条件与循环","level":"1.3.7","depth":2,"path":"chapter01/conditions.md","ref":"chapter01/conditions.md","articles":[]},"previous":{"title":"🟦 如何理解 Ruby 变量与常量","level":"1.3.5","depth":2,"path":"chapter01/consts.md","ref":"chapter01/consts.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["custom-js-css","mathjax"],"pluginsConfig":{"custom-js-css":{"js":["./js/twemoji.min.js","./js/emoji.js"],"css":["./css/emoji.css"]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter01/functions.md","mtime":"2020-01-29T08:07:22.861Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-29T08:08:30.325Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
