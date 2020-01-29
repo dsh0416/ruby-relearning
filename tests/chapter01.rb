@@ -137,4 +137,83 @@ class TestChapter01 < Minitest::Test
     a = 'bar'
     assert_equal(a, 'bar')
   end
+
+  # Chapter 01, Functions
+  def test_func_with_single_arg
+    assert_equal(proc do
+      def succ(x)
+        x + 1
+      end
+    
+      succ(1)
+    end.call, 2)
+  end
+
+  # Chapter 01, Functions
+  def test_func_with_no_args
+    assert_equal(proc do
+      def hello
+        'Hello'
+      end
+    
+      hello
+    end.call, 'Hello')
+  end
+
+  # Chapter 01, Functions
+  def test_func_with_multi_args
+    assert_equal(proc do
+      def add(a, b)
+        a + b
+      end
+    
+      add(1, 2)
+    end.call, 3)
+  end
+
+  # Chapter 01, Functions
+  def test_func_with_early_stop
+    assert_equal(proc do
+      def add(a, b)
+        return a + b
+        a - b
+      end
+    
+      add(1, 1)
+    end.call, 2)
+  end
+
+  # Chapter 01, Functions
+  def test_func_call
+    assert_equal(proc do
+      def add(a, b)
+        return a + b
+      end
+    
+      add 1, 1
+    end.call, 2)
+  end
+
+  # Chapter 01, Functions
+  def test_func_nil_return
+    assert_nil(proc do
+      def nil_func
+        return
+      end
+    
+      nil_func
+    end.call)
+  end
+
+  # Chapter 01, Functions
+  def test_undef
+    assert_raises NameError do
+      def foo
+        'bar'
+      end
+      assert_equal(foo, 'bar')
+      undef foo
+      foo
+    end
+  end
 end
