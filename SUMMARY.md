@@ -8,7 +8,7 @@
   * [🟩 REPL 和编辑器](chapter01/editor.md)
   * [🟩 变量与基本算数](chapter01/variables.md)
   * [🟦 如何理解 Ruby 变量与常量](chapter01/consts.md)
-  * [🟩 函数](chapter01/functions.md)
+  * [🟩 函数基础](chapter01/functions.md)
   * [🟩 条件与循环](chapter01/conditions.md)
   * [🟦 语法糖设计](chapter01/sugar.md)
   * [🟩 练习：计算器](chapter01/calculator.md)
