@@ -22,8 +22,13 @@ jobs:
         ruby-version: 2.7
     - name: Install Dependencies
       run: |
+        sudo apt-get install p7zip-full
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: Download Fonts
+      run: |
+        wget https://github.com/be5invis/Sarasa-Gothic/releases/download/v0.10.2/sarasa-gothic-ttf-0.10.2.7z
+        7z x sarasa-gothic-ttf-0.10.2.7z -o./data/fonts/
     - name: Build
       run: |
         bundle exec rake build

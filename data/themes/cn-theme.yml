@@ -3,13 +3,9 @@ font:
     Normal Font:
       normal: sarasa-gothic-sc-regular.ttf
       bold: sarasa-gothic-sc-bold.ttf
-      italic: sarasa-gothic-sc-italic.ttf
-      bold_italic: sarasa-gothic-sc-bolditalic.ttf
     Mono Font:
       normal: sarasa-mono-sc-regular.ttf
       bold: sarasa-mono-sc-bold.ttf
-      italic: sarasa-mono-sc-italic.ttf
-      bold_italic: sarasa-mono-sc-bolditalic.ttf
   fallbacks:
     - Normal Font
 page:
