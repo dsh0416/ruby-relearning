@@ -1,2 +1,3 @@
-node_modules
-/_book
+/build
+/data/fonts/*
+!.gitkeep

@@ -23,6 +23,3 @@ jobs:
       - name: Run Tests
         run: |
           bundle exec rake test
-      - name: Run Markdown Lint
-        run: |
-          bundle exec rake lint

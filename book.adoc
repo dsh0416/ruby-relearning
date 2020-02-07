@@ -1,0 +1,11 @@
+= Ruby 再入门
+Delton Ding <dsh0416@gmail.com>
+v0.1.0, 2019-02-08
+:doctype: book
+:toc: left
+:source-highlighter: coderay
+:imagesdir: images
+:icons: font
+// :front-cover-image: image:cover.png[Front Cover,1050,1600]
+
+include::preface/README.adoc[]
