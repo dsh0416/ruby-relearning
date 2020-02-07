@@ -1,6 +1,4 @@
-require 'bundler/setup'
 require 'rake/testtask'
-require 'asciidoctor'
 
 task :default => :test
 
@@ -10,6 +8,7 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :build => [:clean] do
+  require 'asciidoctor'
   source = 'book.adoc'
   doc = Asciidoctor.load_file source
   docname = doc.attributes['docname']

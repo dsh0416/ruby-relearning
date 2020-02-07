@@ -19,6 +19,7 @@ jobs:
       - name: Install Dependencies
         run: |
           gem install bundler
+          bundle config set without 'build'
           bundle install --jobs 4 --retry 3
       - name: Run Tests
         run: |
