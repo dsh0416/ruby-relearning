@@ -20,7 +20,7 @@ task :build => [:clean] do
   sh "bundle exec asciidoctor -D #{build_dir}/#{filename} -r asciidoctor-mathematical -a mathematical-format=svg -o index.html #{source}"
   cp_r 'images', "#{build_dir}/#{filename}"
   sh 'mkdir -p book'
-  cp_r 'images', "book/images" # Fix for existingasciidoctor-mathematical bug
+  cp_r 'images', "book/images" # FIXME: Hack for existingasciidoctor-mathematical bug
 
   # Build pdf
   sh "bundle exec asciidoctor-pdf -D #{build_dir} -o #{filename}.pdf -r ./cjk-gothic.rb -r asciidoctor-mathematical -a mathematical-format=svg -a pdf-style=cn #{source}"
