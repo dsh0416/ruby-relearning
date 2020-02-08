@@ -561,6 +561,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_如何管理_ruby_版本">如何管理 Ruby 版本</a></li>
 <li><a href="#_repl_和编辑器">REPL 和编辑器</a></li>
 <li><a href="#_变量与基本算数">变量与基本算数</a></li>
+<li><a href="#_如何理解_ruby_变量与常量">如何理解 Ruby 变量与常量</a></li>
+<li><a href="#_函数基础">函数基础</a></li>
 </ul>
 </li>
 </ul>
@@ -1313,7 +1315,7 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="text">❯ ruby hello.rb
+<pre class="CodeRay highlight"><code>❯ ruby hello.rb
 Hello World</code></pre>
 </div>
 </div>
@@ -1611,13 +1613,302 @@ a + <span class="integer">3</span> <span class="comment"># =&gt; 5</span>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_如何理解_ruby_变量与常量">如何理解 Ruby 变量与常量</h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+本章节涉及较为进阶内容，建议第一次接触编程或缺乏编程经验的开发者暂时跳过这一章节。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>让人出乎意料的是：Ruby 并没有真正意义的常量</strong></p>
+</div>
+<div class="paragraph">
+<p>这句话一出口，必然有人不服。「Ruby 里全大写的关键字，不就是常量吗？」此言差矣。虽然 Ruby 中的全大写的关键字会被作为常量来识别，但是 Ruby 中的常量本质上还是变量，因为你依然可以给常量任意赋值，只是会触发警告。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="constant">CONST_A</span> = <span class="string"><span class="delimiter">'</span><span class="content">foo</span><span class="delimiter">'</span></span>
+<span class="constant">CONST_A</span> = <span class="string"><span class="delimiter">'</span><span class="content">bar</span><span class="delimiter">'</span></span> <span class="comment"># =&gt; warning: already initialized constant CONST_A</span>
+puts <span class="constant">CONST_A</span> <span class="comment"># 'bar'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>另一个常常被人混淆的概念则是 Ruby 中的 <code>Object#freeze</code> 方法。「把变量冻结后我就不能编辑了，这难道不是常量吗？」</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="string"><span class="delimiter">'</span><span class="content">foo</span><span class="delimiter">'</span></span>.freeze
+a &lt;&lt; <span class="string"><span class="delimiter">'</span><span class="content">bar</span><span class="delimiter">'</span></span> <span class="comment"># FrozenError (can't modify frozen String: &quot;a&quot;)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这同样不是常量，而是另一个名词「不变量（immutable）」。我们可以看下面的例子，只要不是编辑对象本身，我依然可以给冻结后的对象赋予一个完全的新值。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="string"><span class="delimiter">'</span><span class="content">foo</span><span class="delimiter">'</span></span>.freeze
+a = <span class="string"><span class="delimiter">'</span><span class="content">bar</span><span class="delimiter">'</span></span>
+puts a <span class="comment"># 'bar'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>虽然可变量（mutable）、不变量（immutable）听起来和变量（variable）以及常量（const）听起来非常像，但它们是完全不一样的东西。我们要把数据的存储拆成两个部分来看，代号和内容。变量、常量说的是代号所指的对象的可变还是不可变；而可变量、不变量指的是指向的那个对象里面内容物的可变还是不可变。</p>
+</div>
+<div class="paragraph">
+<p>我们举个例子，现在有一座房子，地址是 A，A 就是变量名。A 房子里住着小明。如果小明可以把这 A 房子卖给小王，那么这个 A 房子就是个「变量」；如果小明不被允许把 A 房子卖给其他人，那么 A 就是一个「常量」。A 房子里的小明体重 100 斤，今天小明吃成了 200 斤，那么他就是个「可变量」；如果小明住进房子里，所有性状不可能变化了，那么他就是个「不变量」。至于今天 A 房子里住着一个 100 斤的小明，我明天把 A 房子转给另一个 200 斤的小王住，那就不管「可变/不变」什么事，而是「变量/常量」的事情了。</p>
+</div>
+<div class="paragraph">
+<p>简而言之，「可变/不变」是数据结构本身的特性，而「变量/常量」是指向数据的代号的特性。</p>
+</div>
+<div class="paragraph">
+<p>讲到这里结论就已经很明显了：Ruby 没有常量，全大写的常量其实本质上还是变量只是会在改变时抛出 warning，而 freeze 是将可变量转换成不可变量。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_函数基础">函数基础</h3>
+<div class="paragraph">
+<p>Ruby 中的函数 (function) 的本质其实是方法 (method)。关于这两者的差异，我们会在《第四周：面向对象再入门》中再详述。我们在这一章节中还是作为函数来处理。</p>
+</div>
+<div class="sect3">
+<h4 id="_什么是函数">什么是函数？</h4>
+<div class="paragraph">
+<p>理解什么是程序中的函数，我们先理解什么是数学中的函数。在小学和初中中学习的函数通常是比较狭隘的，往往把函数和表达式画上等号。但站在集合论的角度，我们可以更好理解函数的本质。我们把定义域和值域看成两个集合，函数就是定义域和值域的对应关系。</p>
+</div>
+<div class="paragraph">
+<p>如果我们用比较粗糙的观点来看，函数 <span class="image"><img src="images/stem-8fa14cdd754f91cc6554c9e71929cce7.svg" alt="stem 8fa14cdd754f91cc6554c9e71929cce7" width="7" height="9"></span> 就是一个黑盒 (black box)。当你扔进去一个定义域里的 <span class="image"><img src="images/stem-9dd4e461268c8034f5c8564e155c67a6.svg" alt="stem 9dd4e461268c8034f5c8564e155c67a6" width="9" height="6"></span>，函数就会返回一个经过函数处理的结果 <span class="image"><img src="images/stem-415290769594460e2e485922904f345d.svg" alt="stem 415290769594460e2e485922904f345d" width="9" height="8"></span>，即 <span class="image"><img src="images/stem-fd91c508f91c2c84498680bd337c1d7a.svg" alt="stem fd91c508f91c2c84498680bd337c1d7a" width="50" height="12"></span>。程序中的函数也是这样一个东西，但是和数学中的函数也有一些细微差异。</p>
+</div>
+<div class="paragraph">
+<p>目的上来说，程序中的函数和数学上的函数是一致的。在数学中，函数的引入极大简化了表达。重复的运算可以由函数或函数的组合来表达，同时我们也可以对函数本身进行进一步的研究（比如导数）。程序中也是同理。程序的开发是为了解决人类的重复性工作，其代码过程中也必然会有大量重复的，需要复用的地方。而函数就为这种场景提供了绝佳的解决方案。</p>
+</div>
+<div class="paragraph">
+<p>但程序中的函数和数学上的函数还存在一定差异。对于一个数学函数，对于一个给定的 <span class="image"><img src="images/stem-9dd4e461268c8034f5c8564e155c67a6.svg" alt="stem 9dd4e461268c8034f5c8564e155c67a6" width="9" height="6"></span>，无论传入多少次，其结果都是不变的。但这一行为在大多数编程语言中通常是不被保证的，即这一函数函数是不是纯函数 (pure function)。我们会在之后的例子中进一步讨论这一问题。</p>
+</div>
+<div class="paragraph">
+<p><span class="line-through">当我们把需求、比萨和咖啡扔给程序员，程序员就会输出程序。</span></p>
+</div>
+<div class="paragraph">
+<p><span class="line-through">从这个角度上来看，程序员不也是一个函数吗？</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_函数定义">函数定义</h4>
+<div class="paragraph">
+<p>函数的三大要素：定义域、值域和映射方法。</p>
+</div>
+<div class="paragraph">
+<p>对应到程序中就是参数、返回值和函数代码片段。我们也从这三块来理解 Ruby 中的函数定义。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">succ</span>(x) <span class="comment"># &lt;- 函数的名称与参数</span>
+  x + <span class="integer">1</span> <span class="comment"># &lt;- 函数的返回值</span>
+<span class="keyword">end</span> <span class="comment"># &lt;- 函数代码结束</span>
+
+succ(<span class="integer">1</span>) <span class="comment"># =&gt; 2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ruby 的函数以 <code>def</code> 开始，<code>def</code> 是 define 的缩写，即要在此定义函数。</p>
+</div>
+<div class="paragraph">
+<p><code>def</code> 后接一个空格，然后是函数的名称，这里例子中是 <code>succ</code>，即之后要用 <code>succ</code> 这个名字来调用这一函数。</p>
+</div>
+<div class="paragraph">
+<p>函数名后紧跟一对括号，括号内是参数列表。函数的定义域在程序中就是以「参数 (arguments)」来实现的。如果没有参数，可以省略这一对括号。例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">hello</span>
+  puts <span class="string"><span class="delimiter">'</span><span class="content">Hello</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>括号内的参数是一些变量名，外面传入的参数就会在这里以这些变量被传入函数内。如果需要传入多个参数，则以逗号 <code>,</code> 分割。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">add</span>(a, b)
+  a + b
+<span class="keyword">end</span>
+
+add(<span class="integer">1</span>, <span class="integer">2</span>) <span class="comment"># =&gt; 3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>函数的映射方法是通过函数代码来实现的。参数列表后，<code>end</code> 关键字前即为函数代码，函数代码可以利用函数中的变量进行一些变换从而实现函数的功能。而最后一步，则是将函数的计算结果传回给函数的调用。函数的值域是通过「返回值 (return value)」来实现的。</p>
+</div>
+<div class="paragraph">
+<p>在 Ruby 中函数有两种方法定义返回值。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>使用 return 来返回值</p>
+</li>
+<li>
+<p>默认将最后一次运算结果返回</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>在下面这个例子中：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">add</span>(a, b)
+  a + b
+<span class="keyword">end</span>
+
+add(<span class="integer">1</span>, <span class="integer">2</span>) <span class="comment"># =&gt; 3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>函数的第一行也是最后一行代码是 <code>a + b</code>，Ruby 会自动将这最后的计算结果作为返回值。</p>
+</div>
+<div class="paragraph">
+<p>而类似于其它编程语言，Ruby 也支持使用 <code>return</code> 关键字来返回值。同时 <code>return</code> 也意味者程序的提前运行，这在我们之后讲到流程控制时会非常有用。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">add</span>(a, b)
+  <span class="keyword">return</span> a + b
+  puts <span class="string"><span class="delimiter">'</span><span class="content">wat?</span><span class="delimiter">'</span></span> <span class="comment"># 这一行不会被运行</span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_函数调用">函数调用</h4>
+<div class="paragraph">
+<p>调用自己定义的函数如同我们之前调用过的所有系统内建的函数一样，直接函数名加上参数即可。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">add</span>(a, b)
+  <span class="keyword">return</span> a + b
+<span class="keyword">end</span>
+
+add(<span class="integer">1</span>, <span class="integer">1</span>) <span class="comment"># =&gt; 2</span>
+add <span class="integer">1</span>, <span class="integer">1</span>  <span class="comment"># =&gt; 2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在许多变成语言中，参数必须被 <code>()</code> 包裹住。在 Ruby 中，如果嵌套关系明确，那么 <code>()</code> 也可以省略。这也是为什么我们之前打印内容到屏幕时可以写成 <code>puts 'Hello World'</code>，这其实和 <code>puts('Hello World')</code> 等价。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">豆知识：<code>void</code> v.s. <code>nil</code></div>
+<div class="paragraph">
+<p>Ruby 和其它语言还有一个在函数返回值上的差异。在 Ruby 中任何方法都有「返回值」，但返回值可能为「空」。这句话听起来非常拗口，我们来简单比较一下。如果我们在 C++ 语言中定义一个函数如下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="c++"><span class="directive">void</span> void_function() {
+  <span class="keyword">return</span>;
+}
+
+<span class="predefined-type">int</span> main() {
+  <span class="directive">auto</span> x = void_function(); <span class="comment">// illegal, 非法代码。</span>
+  <span class="keyword">return</span> <span class="integer">0</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这段代码是非法的，因为 <code>void_function()</code> 没有返回值，不能让其结果赋值给 <code>x</code>。</p>
+</div>
+<div class="paragraph">
+<p>但是如果在 Ruby 中定义一个空函数，</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">nil_func</span>
+  <span class="keyword">return</span>
+<span class="keyword">end</span>
+
+x = nil_func
+p x <span class="comment"># =&gt; nil</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>但是我们保持语义改用 Ruby 来写。<code>nil_func</code> 函数确实是有返回值的，只不过这个返回值是 <code>nil</code> 而已。Ruby 中的 <strong>任何函数都有返回值</strong>。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">小练习</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>创建一个函数 <code>pow</code>，接受两个参数 <code>x</code> 和 <code>y</code>，计算  x^y  的结果并返回。</p>
+</li>
+<li>
+<p>创建一个函数 <code>succ</code>，接受一个参数 <code>x</code> 返回 <code>x + 1</code>。定义另一个函数 <code>succ2</code>，在不使用 <code>+</code> 运算符的前提下，返回 <code>x + 2</code>。</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">豆知识：定义好的函数可以取消吗？</div>
+<div class="paragraph">
+<p>虽然这样的需求很少会发生，但 Ruby 还真的支持取消定义好的函数的特性。可以试一试下面的代码：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">foo</span>
+  <span class="string"><span class="delimiter">'</span><span class="content">bar</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span>
+
+foo <span class="comment"># =&gt; 'bar'</span>
+
+<span class="keyword">undef</span> <span class="function">foo</span>
+
+foo <span class="comment"># =&gt; NameError</span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-08 01:58:59 UTC
+Last updated 2020-02-08 02:22:21 UTC
 </div>
 </div>
 </body>
