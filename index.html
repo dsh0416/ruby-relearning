@@ -559,6 +559,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_简介_2">简介</a></li>
 <li><a href="#_环境搭建">环境搭建</a></li>
 <li><a href="#_如何管理_ruby_版本">如何管理 Ruby 版本</a></li>
+<li><a href="#_repl_和编辑器">REPL 和编辑器</a></li>
+<li><a href="#_变量与基本算数">变量与基本算数</a></li>
 </ul>
 </li>
 </ul>
@@ -995,13 +997,11 @@ source ~/.rvm/scripts/rvm # 载入 RVM 环境（新开 Terminal 就不用这么�
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
+<div class="title">生日快乐！欢迎自己编译你的蛋糕。 (Photo by Monika Grabkowska on Unsplash)</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/cake-recipe.jpg" alt="cake recipe">
 </div>
-</div>
-<div class="paragraph">
-<p>生日快乐！欢迎自己编译你的蛋糕。 (Photo by Monika Grabkowska on Unsplash)</p>
 </div>
 </td>
 </tr>
@@ -1133,13 +1133,476 @@ make</code></pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_repl_和编辑器">REPL 和编辑器</h3>
+<div class="sect3">
+<h4 id="_repl">REPL</h4>
+<div class="paragraph">
+<p>使用 <code>info irb</code> 来查看 <code>irb</code> 命令的帮助，我们会看到 <code>irb</code> 是「交互式 Ruby 壳程序」（Ruby Interactive Ruby Shell）的缩写，所谓的交互式就是 Ruby 程序的 REPL 环境。</p>
+</div>
+<div class="paragraph">
+<p>REPL 是一个在 Lisp 和受其影响的语言中非常常见的概念，是「读取-求值-输出 循环」（Read-Eval-Print Loop）的缩写。启动 REPL 程序后，你可以立刻运行你的各种代码，而无需新建一个文件编辑后再去执行。这对于测试、调试非常实用。</p>
+</div>
+<div class="paragraph">
+<p>对于 Ruby 来说，在终端程序中输入 <code>irb</code> 按下回车后，Ruby REPL 程序就会启动。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>❯ irb
+2.7.0 :001 &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在这个环境里输入 <code>puts 'Hello World'</code> 然后回车，就会立刻看到屏幕上打印了 Hello World。Hello World 两侧被「单引号（'）」包围，来告诉电脑这里是一个字符串，而不是代码。<strong>注意：这里的单引号是英文输入法下的傻瓜单引号（'），而不是中文的单引号（‘’）</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>❯ irb
+2.7.0 :001 &gt; puts 'Hello World'
+Hello World
+ =&gt; nil
+2.7.0 :002 &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在这个环境里输入 <code>exit</code> 然后回车则会退出。</p>
+</div>
+<div class="paragraph">
+<p>REPL 叫「读取-求值-输出 循环」，我们就来分别看一看这四个步骤：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>读取：REPL 程序启动后，就会等待你输入新的代码。</p>
+</li>
+<li>
+<p>求值：当输入 <code>puts 'Hello World'</code> 后，程序就会进行求值。<code>puts</code> 方法接收一个字符串（一串字符）作为参数，在屏幕上打印出来并自动换行。然后返回值为「空」。</p>
+</li>
+<li>
+<p>输出：REPL 会自动把求值结果输出打印到屏幕。由于 <code>puts</code> 的返回值是「空」，所以这里打印 <code>nil</code>。</p>
+</li>
+<li>
+<p>循环：完成输出后回到等待读取状态，等待下一条代码的输入。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_豆知识nil_还是_null">豆知识：<code>nil</code> 还是 <code>null</code>？</h4>
+<div class="paragraph">
+<p>Ruby 在返回值是「空」时，返回 <code>nil</code>。你可能在其它语言中会发现会用 <code>null</code> 或者 <code>NULL</code> 关键字来表示类似的含义。事实上，它们确实是相同的。这两个词语都是拉丁语词源的。</p>
+</div>
+<div class="paragraph">
+<p><code>nil</code> 来自于拉丁语 nīl，是 nihil, nihilium 的缩写。其中 ni 是 ne- 词缀的变形，表示「没有 (not)」。而 hilium 是「一点点 (a little, a trifle)」。合起来「没有一点点」，就是「完全没有」的意思。</p>
+</div>
+<div class="paragraph">
+<p><code>null</code> 来自法语 nul，而 nul 来自于拉丁语 nūllus。其中 n 同样是 ne- 词缀的变形，表示「没有 (not)」。而 ūllus 则是「任何（any）」的意思。合起来「任何一个都没有」，同样也是「完全没有」的意思。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_编辑器">编辑器</h4>
+<div class="paragraph">
+<p>如果要写一个复杂的程序，使用 REPL 可能还是太过牵强了。我们还是要准备一个编辑器，提前编辑好文件再来执行它。事实上，任何纯文本编辑器，包括 Windows 自带的那个记事本，都可以被用来编辑 Ruby 代码。但是，我们没有必要折磨自己，写代码应该是一件让人开心的事情。使用专门为代码编辑设计的编辑器对于程序开发还是有很多好处的。下面是一些代码编辑器会提供的关键特性：</p>
+</div>
+<div class="sect4">
+<h5 id="_等宽字体">等宽字体</h5>
+<div class="paragraph">
+<p>代码编辑器通常都会默认使用等宽字体作为默认字体，其特点是无论是拉丁字母还是常用的西文符号的字符宽度都是一致的。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/font-preview.png" alt="Font Preview">
+</div>
+</div>
+<div class="paragraph">
+<p>在这张图中，上方的思源黑体 <strong>不是</strong> 一款等宽字体，字形的宽度会变化。而下方的 <a href="https://github.com/be5invis/Iosevka/">Iosevka</a> 字体是一款等宽字体，字形的宽度是固定的。如果是阅读长篇文章，非等宽字体也许会更加美观好读。但是代码是具备功能性的问题，有时代码的对齐对于调试时的可读性有很大的帮助，所以 <strong>强烈推荐</strong> 使用等宽字体来进行编程。</p>
+</div>
+<div class="paragraph">
+<p>对于 CJK（中文、日文、韩文）开发者，我个人非常推荐使用 <a href="https://github.com/be5invis/Sarasa-Gothic">更纱黑体</a> 作为编辑器的字体。更纱黑体是 Iosevka 和思源黑体的结合字体。因为 Iosevka 字体设计的宽度正好是思源黑体中汉字、平假名、片假名和谚文宽度的一半，即使文字混合同样可以对齐。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_语法高亮">语法高亮</h5>
+<div class="paragraph">
+<p>语法高亮指的是通过不同颜色来标记代码中不塌缩的关键字从而提高代码的可读性。比如下面两段一样的代码：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>def abs(num)
+  return num if num &gt; 0
+  -num
+end</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">abs</span>(num)
+  <span class="keyword">return</span> num <span class="keyword">if</span> num &gt; <span class="integer">0</span>
+  -num
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>显然下面那种读起来更加舒适。花花绿绿是一种硬需求，以至于在 Ruby 2.7 的 <code>irb</code> 中，默认也支持了语法高亮。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_代码补全">代码补全</h5>
+<div class="paragraph">
+<p>代码补全指的是编辑器能根据你输入一半的关键字来自动推测你的代码，从而给予智能的补全提示。这在一些静态类型语言中会有相当高的准确率，在一些 API 名称长度非常长的语言或框架（例如 Java 或苹果的 Cocoa 框架）中会显得特别实用：</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">XCode 中 Swift 语言的自动代码补全</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/xcode-autocomplete.png" alt="xcode autocomplete">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Ruby 是一门动态语言，大多数的代码补全的准确率没有那么好，目前有一些基于人工智能的全新尝试，例如「TabNine」代码补全插件，但还在比较早期的阶段。好在 Ruby 的 API 通常都比较短，也不算是太大的问题。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_项目组织管理">项目组织管理</h5>
+<div class="literalblock">
+<div class="content">
+<pre>虽然文件管理在早年的编辑器中不是必需。但在今天工程复杂度越来越大的大前提下变得越来越重要。内置文件、目录的管理，甚至是和 `git` 等版本管理工具进行结合对于提升代码开发效率也有着相当的帮助。</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_编辑器选择">编辑器选择</h4>
+<div class="paragraph">
+<p>现代的代码编辑器，我个人推荐使用 <a href="https://code.visualstudio.com/">Visual Studio Code</a>。Visual Studio Code（以下简称 vscode）是微软近年来推出的罕见在口碑上成功的产品。vscode 是一款开源、跨平台的文本编辑器。其本身非常轻量，安装非常方便，同时也有丰富的插件系统支持。只需安装 <a href="https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby">Ruby 插件</a>，即可满足 Ruby 开发大多数的需求。和其主要竞争者 Atom 比较，vscode 的插件系统实现非常高效，编辑器不容易被插件拖累性能而变得卡顿。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/vscode.png" alt="vscode">
+</div>
+</div>
+<div class="paragraph">
+<p>纯命令行（CLI）下的代码编辑器，Vim 和 Emacs 都有其非常坚持的使用者。这两款编辑器仿佛两个宗教，在网上时不时都会引来支持者们疯狂地辩论。但不得不说，这两款编辑器都有着非常高的效率（如果你熟悉各种快捷键和插件配置的话），但这两款编辑器同样都有着极高的学习曲线。如果你考虑把终端作为自己的主要使用应用的话，熟悉其中的一款是非常有效的。但如果你只是临时、极少使用终端上的文本编辑器的话，使用操作傻瓜 <code>nano</code> 也不失为一个好选择。</p>
+</div>
+<div class="paragraph">
+<p>另一个选项则是 IDE，IDE 是集成开发环境（Integrated Development Environment）的缩写。代码补全、整合的调试开发环境、项目组织管理、版本管理曾经是 IDE 最明显的特点。但现代的文本编辑器像是 vscode 同样支持了这些特性，让编辑器和 IDE 之间的界限愈发模糊。如果想用 IDE 开发 Ruby，目前最好用的工具是由 JetBrains 推出的 [RubyMine](<a href="https://www.jetbrains.com/ruby/)。RubyMine" class="bare">https://www.jetbrains.com/ruby/)。RubyMine</a> 对 Ruby 上常见框架都实现了自己的类型补充，使得代码自动补全变得比较可用。同时 JetBrains 祖传的重构（Refactor）工具对于大型项目的开发也是比较高效的工具。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_试一试">试一试</h4>
+<div class="paragraph">
+<p>本文使用 vscode 作为编辑器的例子，其它编辑器同理。创建一个文件，保存命名为 <code>hello.rb</code>（<code>.rb</code> 是 Ruby 的默认后缀名）。在里面输入如下的代码：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">puts <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>打开终端应用（Windows 下是 <code>cmd</code>），利用 <code>cd 路径</code> 切换至这一目录，使用 <code>ruby hello.rb</code> 执行。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="text">❯ ruby hello.rb
+Hello World</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>你便成功运行了这一 Ruby 文件。尝试改一改这一 Ruby 文件，再多运行几次来体验一下 Ruby 程序的运行吧。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">小练习</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>在屏幕上打印你的名字。</p>
+</li>
+<li>
+<p>分两行分别打印你的「姓」和「名」。</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">豆知识：Ruby 中打印输出有哪些常用方法？</div>
+<div class="paragraph">
+<p>在上文中我们使用的是 <code>puts</code> 命令来打印的。Ruby 中常用的打印输出到屏幕的方法有：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>puts</code></p>
+</li>
+<li>
+<p><code>print</code></p>
+</li>
+<li>
+<p><code>p</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>puts</code> 和 <code>print</code> 的差异是显而易见的，<code>puts</code> 会自动在打印完成后换行，而 <code>print</code> 不会。<code>p</code> 则比较复杂，<code>p foo</code> 类似于 <code>puts foo.inspect</code>，<code>#inspect</code> 是 Ruby 中查看某一个对象内部结构的方法。比如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">p <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>打印的是 "Hello World" 而不单单是 Hello World。这一对引号即强调了这个对象是一个字符串，串的内容是 Hello World。另外一个差异是，<code>puts</code> 和 <code>print</code> 都是返回 <code>nil</code> 的，但 <code>p</code> 会原样返回，这一特性可以用来非常方便地调试程序故障。</p>
+</div>
+<div class="paragraph">
+<p>猜一猜运行下面的代码，打印结果是什么？</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">print <span class="string"><span class="delimiter">'</span><span class="content">Hello</span><span class="delimiter">'</span></span>
+puts <span class="string"><span class="delimiter">'</span><span class="content">Hello</span><span class="delimiter">'</span></span>
+p <span class="string"><span class="delimiter">'</span><span class="content">Hello</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>运行一下看看和自己猜的是不是一样，并尝试来解释一下为什么。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_变量与基本算数">变量与基本算数</h3>
+<div class="sect3">
+<h4 id="_整数运算">整数运算</h4>
+<div class="paragraph">
+<p>既然计算机叫计算机，那么我们还是从「计算」作为入门的第一步吧。</p>
+</div>
+<div class="paragraph">
+<p>四则运算在 Ruby 语言中的表达几乎和现实世界算数的表达式一样。小小的不同是，由于乘法 <code>×</code> 和除法的符号 <code>÷</code> 在键盘上不方便输入，于是使用了另两个符号 <code>*</code> 和 <code>/</code> 来替代乘和除。<strong>特别注意：除法符号 <code>/</code> 不是 <code>\</code>。</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">1</span> + <span class="integer">1</span> <span class="comment"># =&gt; 2</span>
+<span class="integer">1</span> - <span class="integer">5</span> <span class="comment"># =&gt; -4</span>
+<span class="integer">3</span> * <span class="integer">7</span> <span class="comment"># =&gt; 21</span>
+<span class="integer">6</span> / <span class="integer">2</span> <span class="comment"># =&gt; 3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>需要注意的是，整数之间的加减乘除的结果必然还是整数。如下面的代码所见，整数间的除法运算实际上是整除。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">5</span> / <span class="integer">2</span> <span class="comment"># =&gt; 2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果需要获得整除后的余数，Ruby 提供了模除运算 <code>%</code>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">5</span> % <span class="integer">2</span> <span class="comment"># =&gt; 1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>需要特别注意的是，在 Ruby 中对负数取余数的结果可能和其它语言不一样。Ruby 中余数的符号 <strong>永远和除数一致</strong>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">5</span> % <span class="integer">2</span> <span class="comment"># =&gt; 1</span>
+<span class="integer">-5</span> % <span class="integer">2</span> <span class="comment"># =&gt; 1</span>
+
+<span class="integer">5</span> % <span class="integer">-2</span> <span class="comment"># =&gt; -1</span>
+<span class="integer">-5</span> % <span class="integer">-2</span> <span class="comment"># =&gt; -1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这一设计带来了显而易见的好处，在判断一个数字是不是奇数的时候我们只需要 <code>% 2</code> 检查结果是否为 <code>1</code> 即可。而无需确认其正负。但坏处也是很明显的，如果你尝试从其它编程语言移植程序到 Ruby 上需要格外小心对正负数取模的处理。</p>
+</div>
+<div class="paragraph">
+<p>Ruby 的整数没有无穷大和未定形式，如果整数除以零会直接抛出程序错误。如果没有处理错误，在程序运行中会直接退出。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">3</span> / <span class="integer">0</span> <span class="comment"># =&gt; ZeroDivisionError (divided by 0)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ruby 另一个特色是大整数运算。不同于 C、C++ 语言中整数类型拥有固定的内存分配大小（上限和下限），Ruby 的整数类型的大小是会动态调整的。这使得你可以自由处理非常大的数字而无需考虑溢出问题。</p>
+</div>
+<div class="paragraph">
+<p>例如 C++ 语言中的下面代码：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="c++"><span class="preprocessor">#include</span> <span class="include">&lt;iostream&gt;</span>
+
+<span class="predefined-type">int</span> main() {
+  std::cout &lt;&lt; <span class="integer">10000000000000000000</span> * <span class="integer">10000000000000000000</span> &lt;&lt; std::endl;
+  <span class="keyword">return</span> <span class="integer">0</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>会因为内存溢出，给出一个不符合数学常识的 <code>687399551400673280</code> 结果。而在 Ruby 中你完全不用担心这一点。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">10000000000000000000</span> * <span class="integer">10000000000000000000</span> <span class="comment"># =&gt; 100000000000000000000000000000000000000</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这一特性在幂运算时特别实用。Ruby 的幂运算符号是 <code>**</code>。<code>a**b</code> 相当于 <span class="image"><img src="images/stem-bbd87e394c9a2e7a45fd63ed40ba0722.svg" alt="stem bbd87e394c9a2e7a45fd63ed40ba0722" width="15" height="10"></span>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="integer">2</span>**<span class="integer">256</span> <span class="comment"># =&gt; 115792089237316195423570985008687907853269984665640564039457584007913129639936</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_局部变量">局部变量</h4>
+<div class="paragraph">
+<p>变量 (variable) 是程序开发的基础概念之一。变量是一种对临时存储的抽象概念。Ruby 中的变量有 4 种类型：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>局部变量 <code>variable</code></p>
+</li>
+<li>
+<p>实例变量 <code>@variable</code></p>
+</li>
+<li>
+<p>类变量 <code>@@variable</code></p>
+</li>
+<li>
+<p>全局变量 <code>$variable</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>这里所介绍的变量是局部变量，至于其它变量的时候，我们会在之后章节中再做介绍。</p>
+</div>
+<div class="paragraph">
+<p>Ruby 的局部变量以小写字母或下划线 <code>_</code> 开头。Ruby 中的 <code>=</code> 符号和数学中的等于不同，表示「赋值」符号。表示将 <code>=</code> 符号 <strong>右边</strong> 的结果保存到 <strong>左边</strong> 的变量里。数学中等号两边内容可以互换，但在赋值中是 <strong>绝对</strong> 不能的。</p>
+</div>
+<div class="paragraph">
+<p>在 irb 中试一下下面的代码，来理解局部变量和 <code>=</code> 的使用。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">1</span>
+a + <span class="integer">1</span> <span class="comment"># =&gt; 2</span>
+a + <span class="integer">3</span> <span class="comment"># =&gt; 4</span>
+a = <span class="integer">2</span>
+a + <span class="integer">1</span> <span class="comment"># =&gt; 3</span>
+a + <span class="integer">3</span> <span class="comment"># =&gt; 5</span>
+<span class="integer">2</span> = a <span class="comment"># SyntaxError</span></code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_试一试_2">试一试</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>创建两个变量 <code>a</code> 和 <code>b</code>，给它们赋两个整数，计算并打印它们的和。</p>
+</li>
+<li>
+<p>创建两个变量 <code>a</code> 和 <code>b</code>，给它们赋两个整数，计算并打印它们的乘法。</p>
+</li>
+<li>
+<p>创建三个变量 <code>a</code> 和 <code>b</code> 和 <code>c</code>，给它们赋两个整数，计算它们的和，将他们的结果写入 <code>c</code> 变量中。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>答案见《附录三：参考答案》中的 局部变量 小节</strong></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ruby_的类型系统">Ruby 的类型系统</h4>
+<div class="paragraph">
+<p>类型系统自古以来都是高级语言的一个非常重要的属性。所谓类型，指的是程序语言中变量、常量的数据类型，类型是对数据的约束。比如我们可以检查这一变量是数字还是字符串，从而避免超出我们预料的行为。</p>
+</div>
+<div class="paragraph">
+<p>基于不同的分类方法可以把不同语言的类型系统分成不同类别。一般我们会说 Ruby 的类型系统是一个动态类型、强类型系统。其中动态类型与静态类型相对，而强类型与弱类型相对。类型的动态与静态、强与弱是一对正交（orthogonal）的概念。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/type-system-example.png" alt="Type System Example">
+</div>
+</div>
+<div class="paragraph">
+<p>理解这一问题，我们先要理解类型可能的错误，以及错误带来的问题。</p>
+</div>
+<div class="paragraph">
+<p>一类问题是出现在类似于 C 语言中的内存管理带来的错误。比如说根据某一变量的类型分配了一定空间，但是在写入的时候，占用了大于既定的空间。C 语言不会检查这一类的错误，从而造成程序写入到了其它变量 / 程序本来占用着的空间，进而产生完全未知的行为。这一问题称为「缓冲区溢出」，这会带来未知的程序错误，同时还有可能被黑客巧妙利用从而进一步攻击你的程序。一个典型的案例是 SONY 在 PSP-3000 游戏机上的相册应用存在一个「缓冲区溢出」漏洞，通过一张特殊的图片，黑客实现了对 PSP-3000 的破解，从而运行黑客指定的第三方程序。</p>
+</div>
+<div class="paragraph">
+<p>另一类问题则是由隐式类型转换带来的问题。这一类问题的翘楚就是 PHP 和 JavaScript。这两门语言在运算所需类型不满足的情况下，比起抛出错误，更愿意尝试一系列自动的类型转换来满足需求，而这一过程会带来一系列的问题。</p>
+</div>
+<div class="paragraph">
+<p>比如在 PHP 中著名的 Type Juggling 漏洞，使用 <code>==</code> 符号比较两个完全不同的字符串：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="php"><span class="keyword">if</span> (<span class="string"><span class="delimiter">'</span><span class="content">0e1234</span><span class="delimiter">'</span></span> == <span class="string"><span class="delimiter">'</span><span class="content">0e5678</span><span class="delimiter">'</span></span>) {
+  <span class="predefined">echo</span>(<span class="string"><span class="delimiter">'</span><span class="content">wat</span><span class="delimiter">'</span></span>);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>程序会返回 <code>wat</code>，纵使字符串 <code>0e1234</code> 和 <code>0e5678</code> 完全不相同，但是 PHP 发现了这些字符串都是 <code>0e</code> 开始的，于是会认为这 <strong>可能</strong> 是 <a href="https://zh.wikipedia.org/wiki/%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95">科学记数法</a> 的数字。而无论 0 的多少次方都是 0，所以两者都是 0，因此认为这两个字符串相等。这显然不是预期行为。这一方法常会在一些特殊情况引发更严重的问题，比如检查用户登录密码时，一般数据库存储哈希运算后的 16 进制密码以防止明文泄漏。而 16 进制数有 <span class="image"><img src="images/stem-44336aba7a4c4db9a219816fe9baa42b.svg" alt="stem 44336aba7a4c4db9a219816fe9baa42b" width="18" height="17"></span> 的概率以 <code>0e</code> 开头，同时以 <code>00e</code>、<code>000e</code> 开头的同样也会被以同样的方式处理，因此给定 <code>N</code> 位长的字符串，PHP 会有 <span class="image"><img src="images/stem-8170edd3c0342bbe5d6e254fda14cd67.svg" alt="stem 8170edd3c0342bbe5d6e254fda14cd67" width="48" height="35"></span> 的概率认为其等于 0。</p>
+</div>
+<div class="paragraph">
+<p>这两类由类型带来的问题是高级语言需要尽力避免的。</p>
+</div>
+<div class="paragraph">
+<p>在运行过程中不可能出现类型错误问题的，是强类型系统；而如果这门语言在运行过程中会因为类型错误而产生不可知的任意行为的，那么就是弱类型系统。</p>
+</div>
+<div class="paragraph">
+<p>在编译期（运行程序前）检查类型错误的是静态类型系统，在运行过程中拒绝类型错误的程序继续运行的，则是动态类型系统。</p>
+</div>
+<div class="paragraph">
+<p>虽然 Ruby 考虑在未来的 3.0 版本中引入静态类型检查系统，目前的 Ruby 2.7 仍是运行时的动态类型检查。但是 Ruby 是强类型语言，会在运行通过抛出类型错误，来避免错误的类型转换带来潜在的风险。</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-08 00:26:26 UTC
+Last updated 2020-02-08 01:42:41 UTC
 </div>
 </div>
 </body>
