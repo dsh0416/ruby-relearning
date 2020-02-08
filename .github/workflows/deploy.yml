@@ -22,7 +22,8 @@ jobs:
         ruby-version: 2.7
     - name: Install Dependencies
       run: |
-        sudo apt-get install p7zip-full
+        sudo apt-get -qq -y install p7zip-full
+        sudo apt-get -qq -y install bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev fonts-lyx cmake
         gem install bundler
         bundle install --jobs 4 --retry 3
     - name: Download Fonts

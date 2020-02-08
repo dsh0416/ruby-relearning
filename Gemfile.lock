@@ -9,6 +9,10 @@ GEM
     asciidoctor-epub3 (1.5.0.alpha.13)
       asciidoctor (>= 1.5.3, < 3.0.0)
       gepub (~> 1.0.0)
+    asciidoctor-mathematical (0.2.2)
+      asciidoctor (~> 1.5, >= 1.5.0)
+      mathematical (~> 1.5, >= 1.5.8)
+      ruby-enum (~> 0.4)
     asciidoctor-pdf (1.5.0.rc.3)
       asciidoctor (>= 1.5.3, < 3.0.0)
       concurrent-ruby (~> 1.1.0)
@@ -29,6 +33,10 @@ GEM
       nokogiri (>= 1.8.2, < 1.11)
       rubyzip (> 1.1.1, < 2.1)
     hashery (2.1.2)
+    i18n (1.8.2)
+      concurrent-ruby (~> 1.0)
+    mathematical (1.6.13)
+      ruby-enum (~> 0.4)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     nokogiri (1.10.7)
@@ -56,6 +64,8 @@ GEM
       prawn (~> 2.2)
     public_suffix (4.0.3)
     rake (13.0.1)
+    ruby-enum (0.7.2)
+      i18n
     ruby-rc4 (0.1.5)
     rubyzip (2.0.0)
     safe_yaml (1.0.5)
@@ -68,8 +78,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  asciidoctor (~> 1.5.2)
+  asciidoctor (~> 1.5.0)
   asciidoctor-epub3 (~> 1.5.0.alpha.13)
+  asciidoctor-mathematical (~> 0.2.2)
   asciidoctor-pdf (~> 1.5.0.rc.3)
   coderay (~> 1.1.0)
   minitest (~> 5.14.0)
