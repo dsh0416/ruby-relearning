@@ -535,6 +535,15 @@ table.CodeRay td.code>pre{padding:0}
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#_简介">简介</a>
+<ul class="sectlevel2">
+<li><a href="#_如何编译这本书">如何编译这本书？</a></li>
+<li><a href="#_如何给这本书提供意见修改">如何给这本书提供意见/修改？</a></li>
+<li><a href="#_在线阅读">在线阅读</a></li>
+<li><a href="#_下载">下载</a></li>
+<li><a href="#_鸣谢">鸣谢</a></li>
+</ul>
+</li>
 <li><a href="#_写在一切之前">写在一切之前</a>
 <ul class="sectlevel2">
 <li><a href="#_为什么要写这本书">为什么要写这本书？</a></li>
@@ -545,10 +554,68 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_遇到问题怎么办">遇到问题怎么办？</a></li>
 </ul>
 </li>
+<li><a href="#_第一周hello_world_再入门">第一周：Hello World 再入门</a>
+<ul class="sectlevel2">
+<li><a href="#_简介_2">简介</a></li>
+<li><a href="#_环境搭建">环境搭建</a></li>
+<li><a href="#_如何管理_ruby_版本">如何管理 Ruby 版本</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="_简介">简介</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>一本关于重新思考编程入门的教程。</p>
+</div>
+<div class="sect2">
+<h3 id="_如何编译这本书">如何编译这本书？</h3>
+<div class="paragraph">
+<p>这本书使用 Asciidoc 标准编写。编译这本书需要有 Ruby 的环境。</p>
+</div>
+<div class="paragraph">
+<p>使用 <code>bundle install</code> 安装工具，并使用 <code>bundle exec rake build</code> 进行编译。</p>
+</div>
+<div class="paragraph">
+<p>编译完成的电子书在 <code>./build</code> 目录下。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_如何给这本书提供意见修改">如何给这本书提供意见/修改？</h3>
+<div class="paragraph">
+<p>本书使用 Git 进行维护，并使用 GitHub 对 Git 仓库进行管理。请使用 GitHub 的 Issue 和 Pull Request 系统为本书提供意见和修改。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_在线阅读">在线阅读</h3>
+<div class="paragraph">
+<p><a href="https://restartruby.com">restartruby.com</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_下载">下载</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://restartruby.com/downloads/book.pdf">PDF 版本</a></p>
+</li>
+<li>
+<p><a href="https://restartruby.com/downloads/book.mobi">Epub 版本</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_鸣谢">鸣谢</h3>
+<div class="paragraph">
+<p>这本书的写作过程和发行过程离不开下面这些人的帮助，谢谢他们。</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_写在一切之前">写在一切之前</h2>
 <div class="sectionbody">
@@ -616,7 +683,19 @@ table.CodeRay td.code>pre{padding:0}
 <p>所谓「学而不思则罔，思而不学则殆」。如果只学习基本的语法使用，没有认清很多设计面向的场景，没有理解语言的思考方式，不但写出来的代码非常脏乱差，而且实际使用的时候往往不知从何下手。</p>
 </div>
 <div class="paragraph">
-<p>这本书每个章节的开头会有一个标记 ○ 或者 ◎。○ 表示这个章节是在自上而下讨论一个使用方法，而 ◎ 则是在自下向上讨论具体的实现和思路。如果你是第一次接触编程，我推荐阅读顺序是先把所有 ○ 章节读完，再来读 ◎ 章节。如果你是有一定编程经验，甚至是已经掌握一定 Ruby 编程能力的，可以同时阅读 ○ 和 ◎ 章节。</p>
+<p>本书按知识点的逻辑关系进行排序，因此难度上可能存在跳跃。在一些章节，本书会使用如下的提示来提醒初学者。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+本章节涉及较为进阶内容，建议第一次接触编程或缺乏编程经验的开发者暂时跳过这一章节。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>除了读之外，一定要 <strong>练习</strong>。软件工程是工程学，是由大量的细节组合起来的工程。如果看完书中的内容，不上机练习，不多加尝试，不勤加思考，那么收益必然是零。因为会有大量的问题在没有尝试之前不会发现，等把书看完了，除了掌握了基本概念，剩下的必然都还在云里雾里。</p>
@@ -688,11 +767,379 @@ alias lgbtqiapk=&quot;info&quot;</code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_第一周hello_world_再入门">第一周：Hello World 再入门</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_简介_2">简介</h3>
+<div class="paragraph">
+<p>Ruby 的 Hello World 怎么写？</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">puts <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>学会了，今天也是努力的一天，睡觉吧。</p>
+</div>
+<div class="paragraph">
+<p><strong>等一等！睡太早啦！</strong></p>
+</div>
+<div class="sect3">
+<h4 id="_什么是_hello_world">什么是 Hello World？</h4>
+<div class="paragraph">
+<p>Hello World 就是在屏幕上显示一行 Hello World 的最简单的程序。这通常是程序员接触一门新语言时所需要写的第一个程序。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_为什么要学习_hello_world">为什么要学习 Hello World？</h4>
+<div class="paragraph">
+<p>Hello World 程序的意义绝对不单单是打印一行「Hello World」这么简单。其核心是用来确认程序开发环境和运行环境是不是安装妥当，同时也能对语言的开发进行一个初步的认识。砍柴不误磨刀工，那我们花一些时间，仔细探讨 Ruby 的开发、运行环境配置。</p>
+</div>
+<div class="paragraph">
+<p>让我们一起开心地开始吧。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_环境搭建">环境搭建</h3>
+<div class="sect3">
+<h4 id="_了解_ruby_解释器">了解 Ruby 解释器</h4>
+<div class="sect4">
+<h5 id="_什么是解释器">什么是解释器？</h5>
+<div class="paragraph">
+<p>开发 Ruby 程序最重要环境的是 Ruby 解释器。「解释器」是在解释什么？解释前和解释后的东西是什么？</p>
+</div>
+<div class="paragraph">
+<p>了解解释器，我们需要先了解另一个相近的概念「编译器」。在上世纪计算机刚刚出现的时候，程序员编程需要依赖纸带打孔卡或类似的穿孔纸带。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/punch-card.png" alt="punch card">
+</div>
+</div>
+<div class="paragraph">
+<p>这里的打孔与不打孔就被作为一系列「开」和「关」信号传给电脑，形成程序交由计算机执行。今天的计算机已经淘汰了打孔纸带，计算机的启动和运行流程也变得越来越复杂，但程序依然是一系列「开」和「关」（1 或 0）的二进制信号。直接编写这些二进制，对于今天越来越复杂的程序开发要求来说，已经变得非常困难，于是我们发明了更接近于自然语言的高级语言。Ruby 就是这样一门高级语言。</p>
+</div>
+<div class="paragraph">
+<p>高级语言不能直接被计算机执行，但是我们可以先通过一个「编译器」程序，读入这些高级语言，然后翻译成机器可以执行的二进制。「编译器」通常会把整个程序在运行前就完全编译到机器可以执行的二进制。「解释器」会在运行过程中，把程序一行一行直接翻译执行。解释器通常会比编译器执行得更慢，但同样也带来了更大的动态特性，允许更自由地开发方式。而 Ruby 的执行环境，通常就是这样一个「解释器」。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_ruby_解释器有什么">Ruby 解释器有什么？</h5>
+<div class="paragraph">
+<p>Ruby 解释器是 Ruby 语言开发的核心。Ruby 是一个开放的语言，任何人都可以为 Ruby 实现自己的解释器。Ruby 的解释器多种多样，常见的仍在维护的解释器有：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ruby</p>
+</li>
+<li>
+<p>Ruby MRI (CRuby)</p>
+</li>
+<li>
+<p>JRuby</p>
+</li>
+<li>
+<p>TruffleRuby</p>
+</li>
+<li>
+<p>Rubinius</p>
+</li>
+<li>
+<p>RubyMotion</p>
+</li>
+<li>
+<p>Opal</p>
+</li>
+<li>
+<p>mruby</p>
+</li>
+<li>
+<p>mruby</p>
+</li>
+<li>
+<p>mruby/c</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>这些 Ruby 解释器各有一些差异，支持的语法和执行的性能也并不完全相同。本书所涉及的全部 Ruby 都指官方实现的 Ruby MRI。</p>
+</div>
+<div class="paragraph">
+<p>MRI 代指 Matz&#8217;s Ruby Interpreter，即 Ruby 创始人松本行弘最早实现的 Ruby 解释器，是 Ruby 的官方解释器。虽然在 Ruby 1.9 之后的版本中，官方已经把虚拟机换成了由 Kiochi Sasada 主导的 YARV (Yet another Ruby VM) 解释器。但在 1.9 版本后，YARV 已经被合并到 MRI，此后我们已不特别区分 MRI 和 YARV 了，现在仍称呼这一解释器实现为 Ruby MRI。下文所有的 Ruby 解释器，如无特殊标注，都是 Ruby MRI 解释器的缩写。</p>
+</div>
+<div class="paragraph">
+<p>在撰写本章节的时候，Ruby 的最新版本是 2.7.0，本书全部的代码都在 2.7.0 中进行过测试。我们会自动化测试本书代码在不同环境下的兼容性，以确保正确性。</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_安装方法">安装方法</h4>
+<div class="sect4">
+<h5 id="_windows_用户">Windows 用户</h5>
+<div class="paragraph">
+<p>在 Windows 上安装 Ruby 最简单的方式是 <a href="https://rubyinstaller.org/">RubyInstaller</a>。在本书的编写过程中，我们会测试书中所有涉及到的程序在 Windows 上的兼容性。但由于 Ruby 的第三方依赖，特别是一些设计给 *NIX 服务器的依赖程序，可能没有测试在 Windows 上的兼容性，从而可能在使用上会遇到一定的困难。</p>
+</div>
+<div class="paragraph">
+<p>一些教程不推荐新手在 Windows 上开发 Ruby。但事实上，Ruby 的标准库对于 Windows 的兼容性还是相当良好的。如果没有人在 Windows 上使用 Ruby，那么 Ruby 运行在 Windows 上的问题会变得更多，这是一个恶性循环。但是对于初学者，使用 Linux/macOS 进行开发依然是我个人推荐的。主要问题是，初学者缺乏对环境问题处理的经验，遇到问题往往会不知所措。大多数服务器软件的生产环境更愿意使用自由的 Linux 操作系统，而使用 Ruby 开发服务器应用是最常见的用途，使用和生产环境一致的环境，至少是 *NIX 环境能有效避免问题发生的概率。</p>
+</div>
+<div class="paragraph">
+<p>关于 PC 用户如何选择和安装 Linux 发行版，本书单独开设附录章节来描述，请参阅《附录一：新手如何安装 Linux 开发版？》。另外，在 Windows 10 中可以使用 Windows Subsystem for Linux (WSL) 来产生一个无缝的 Linux 环境。详情请参阅微软的 <a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL 官方文档</a>。</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_nix_用户linuxmacosbsd_用户">*NIX 用户（Linux、macOS、BSD 用户）</h5>
+<div class="sect5">
+<h6 id="_rvm">RVM</h6>
+<div class="paragraph">
+<p>RVM 是最推荐新手安装 Ruby 的方法。笼统来说，使用 RVM 安装 Ruby 需要三步。如果你是 macOS 用户，你可能需要先安装 XCode 和 XCode Command Line Tools 才能安装 RVM。</p>
+</div>
+<div class="paragraph">
+<p>XCode 可以从 App Store 直接下载到，安装完成后打开「终端（Terminal）」应用，使用 <code>xcode-select --install</code> 安装 XCode Command Line Tools。</p>
+</div>
+<div class="paragraph">
+<p>对于 Linux 用户，请确认自己的 Terminal 是 login shell 的模式。一些 Linux 发行版自带的 Terminal 应用没有 login，可能没有加载用户的环境变量。</p>
+</div>
+<div class="paragraph">
+<p>第一步是获取 GPG 公钥，RVM 使用 GPG 密钥系统来确保程序在传输过程中不被篡改。打开终端应用，输入下面的命令即可获取 GPG 密钥。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>第二步则是一键安装脚本，下面的命令会下载 RVM。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">\curl -sSL https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm # 载入 RVM 环境（新开 Terminal 就不用这么做了，默认自动重新载入的）</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>对于中国大陆地区用户，RVM 的自带镜像源可能下载速度太慢。为此 Ruby China 提供了镜像源，在执行第三步前可以使用</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">echo &quot;ruby_url=https://cache.ruby-china.com/pub/ruby&quot; &gt; ~/.rvm/user/db</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>来切换镜像源。</p>
+</div>
+<div class="paragraph">
+<p>最后一步就是执行下面命令来安装特定版本的 Ruby。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm install 2.7.0 # 这里的 2.7.0 可以切换成阅读本文时最新的 Ruby 版本。Ruby 最新版本可以在 https://www.ruby-lang.org/ 确认。</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>安装成功后可以使用</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">ruby -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>来检查所安装的 Ruby 版本有没有正确安装成功，如果返回了版本号，那么就是安装成功了。</p>
+</div>
+<div class="paragraph">
+<p>详细的安装文档可以在 <a href="https://rvm.io/">rvm.io</a> 来查询。</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_snap">snap</h6>
+<div class="paragraph">
+<p>Ruby 在 2018 年 11 月 8 日加入了官方的 snap 套件支持。如果你使用 Ubuntu 16.04 的后续版本，你可以一键安装 Ruby。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">sudo snap install ruby --classic</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>使用 Snap 安装的 Ruby 可能会在环境变量上需要一些额外的配置。建议检查官方的 <a href="https://www.ruby-lang.org/zh_cn/news/2018/11/08/snap/">新闻</a> 来确认细节。</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_编译自源代码">编译自源代码</h6>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+编译自源代码是较为困难的安装方法，不建议新手使用这一方式。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>在电子游戏《尼尔：机械纪元》的 <a href="https://www.jp.square-enix.com/nierautomata/sp/lisence/">用户协议</a> 中，我们会发现出现了 Ruby License。可见在这款游戏中使用了 Ruby 语言实现了一定的功能。这款游戏首发在 PS4 平台上，而 PS4 的操作系统是一个修改自 FreeBSD 操作系统。所以 Ruby 语言对于 BSD 系的操作系统同样是非常友好的。</p>
+</div>
+<div class="paragraph">
+<p>但如果你想在一些嵌入式设备上运行 Ruby 或者需要运行在 PS4 上，使用包管理器可能不是一个好主意，因为你不一定具有全局安装的权限或者不想引入额外的复杂度。这时候直接从源代码编译可能就变成了必须。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/cake-recipe.jpg" alt="cake recipe">
+</div>
+</div>
+<div class="paragraph">
+<p>生日快乐！欢迎自己编译你的蛋糕。 (Photo by Monika Grabkowska on Unsplash)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>从源代码编译安装很简单，你可以先从 Ruby 官方网站下载 <a href="https://www.ruby-lang.org/zh_cn/downloads/">最新的源代码</a>，在解压后执行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">./configure
+make</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>进行编译。Ruby 的编译过程中，一些组件是可选的，你需要自己确认这些可选的依赖是否准备妥当。如果编译后需要安装，你可以执行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">sudo make install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>进行安装。</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_内置包管理器">内置包管理器</h5>
+<div class="paragraph">
+<p>使用例如 Ubuntu、Debian 内置的 <code>apt</code> 或者 CentOS、Fedora 内置的 <code>dnf</code> 或类似方法也可以很方便安装 Ruby。但是，大多数操作系统内建的软件源常有版本滞后、缺少组件的问题。如无必要，不推荐新手使用这样的安装方法。但如果你有一个可控、可信、维护良好的软件源，这也是一个不增加复杂度安装 Ruby 的好方法。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_如何管理_ruby_版本">如何管理 Ruby 版本</h3>
+<div class="paragraph">
+<p>使用 RVM 的一个好处是可以很好管理不同的 Ruby 版本。刚开始写 Ruby 的时候可能不太会意识到这件事情的重要性。但是下面这几种需求在实际开发中可能会发生：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ruby 版本更新了，怎么升级？</p>
+</li>
+<li>
+<p>想临时测试某一特定版本 Ruby 的特性，怎么临时切换？</p>
+</li>
+<li>
+<p>如何指定项目的 Ruby 版本，来确保服务器运行环境和开发环境一致？</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_如何安装新的_ruby_版本">如何安装新的 Ruby 版本？</h4>
+<div class="paragraph">
+<p>在安装之前，你可以先用下面命令检查可以安装的 Ruby 版本：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm list known</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果你想要安装的版本没有出现在这个列表中，你也许需要更新 RVM。更新 RVM 的方法非常简单：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm get head</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>和你安装第一个 Ruby 版本一样，安装新的 Ruby 版本的方法完全一样，比如我想安装 2.7.0 版本，就可以使用下面命令。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm install 2.7.0</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_如何切换_ruby_版本">如何切换 Ruby 版本？</h4>
+<div class="paragraph">
+<p>如果一个常见的需求是安装新 Ruby 版本后希望把默认 Ruby 版本切换到新安装的版本上，命令则是：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm --default use 2.7.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果你只是需要在当前 Shell 环境下临时切换，不需要设置成默认，只要把 <code>--default</code> 参数拿掉即可：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">rvm use 2.7.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>切换后，可以用</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">ruby -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>确认切换后的 Ruby 版本。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_如何设置项目的特定_ruby_版本">如何设置项目的特定 Ruby 版本？</h4>
+<div class="paragraph">
+<p>在项目根目录下放置一个名称为 <code>Gemfile</code> 的文件，并在里面写入如下的内容：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">ruby '2.7.0'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>RVM 就会在 shell 切换到这个目录下之后自动切换当前的 Ruby 版本。这样的设置还有一个好处，就是著名的 Ruby 托管平台 <a href="https://heroku.com">Heroku</a> 也是使用这一方法来切换 Ruby 版本的。如果之后你需要将自己制作的网站托管到 Heroku 上的话，可以利用这一特性自动设置 Heroku 上的 Ruby 版本。</p>
+</div>
+<div class="paragraph">
+<p>Gemfile 是 Bundler 提供依赖管理的重要文件，有关于这方面的功能，我们会在「第六周：Ruby 工程化入门」中重点介绍。</p>
+</div>
+<div class="paragraph">
+<p>由于 Ruby 在设置版本上并没有官方制定的标准。管理项目版本依赖于不同版本管理工具的具体实现。在 RVM 中除了上面的方法，还有 4 种方法可以设置项目的 Ruby 版本。具体可以参考 RVM 的 <a href="https://rvm.io/workflow/projects">Typical RVM Project Workflow</a>。其中使用 <code>.ruby-version</code> 设置 Ruby 版本的方法可以同时在 RVM 和另一个在 Ruby 上常用的版本管理工具 rbenv 通用。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-07 23:38:19 UTC
+Last updated 2020-02-08 00:26:26 UTC
 </div>
 </div>
 </body>
