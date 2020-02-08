@@ -108,16 +108,18 @@ image::vscode.png[]
 
 本文使用 vscode 作为编辑器的例子，其它编辑器同理。创建一个文件，保存命名为 `hello.rb`（`.rb` 是 Ruby 的默认后缀名）。在里面输入如下的代码：
 
-```ruby
+[source,ruby]
+----
 puts 'Hello World'
-```
+----
 
 打开终端应用（Windows 下是 `cmd`），利用 `cd 路径` 切换至这一目录，使用 `ruby hello.rb` 执行。
 
-```text
+[source]
+----
 ❯ ruby hello.rb
 Hello World
-```
+----
 
 你便成功运行了这一 Ruby 文件。尝试改一改这一 Ruby 文件，再多运行几次来体验一下 Ruby 程序的运行吧。
 
@@ -139,19 +141,21 @@ Hello World
 
 `puts` 和 `print` 的差异是显而易见的，`puts` 会自动在打印完成后换行，而 `print` 不会。`p` 则比较复杂，`p foo` 类似于 `puts foo.inspect`，`#inspect` 是 Ruby 中查看某一个对象内部结构的方法。比如：
 
-```ruby
+[source,ruby]
+----
 p 'Hello World'
-```
+----
 
 打印的是 "Hello World" 而不单单是 Hello World。这一对引号即强调了这个对象是一个字符串，串的内容是 Hello World。另外一个差异是，`puts` 和 `print` 都是返回 `nil` 的，但 `p` 会原样返回，这一特性可以用来非常方便地调试程序故障。
 
 猜一猜运行下面的代码，打印结果是什么？
 
-```ruby
+[source,ruby]
+----
 print 'Hello'
 puts 'Hello'
 p 'Hello'
-```
+----
 
 运行一下看看和自己猜的是不是一样，并尝试来解释一下为什么。
 ====

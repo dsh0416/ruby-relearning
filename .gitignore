@@ -1,4 +1,5 @@
 /build
 /book
 /data/fonts/*
+/chapter*/images/*
 !.gitkeep

@@ -26,7 +26,7 @@ task :build => [:clean] do
   sh "bundle exec asciidoctor-pdf -D #{build_dir} -o #{filename}.pdf -r ./cjk-gothic.rb -r asciidoctor-mathematical -a mathematical-format=svg -a pdf-style=cn #{source}"
 
   # Build epub
-  sh "bundle exec asciidoctor-epub3 -D #{build_dir} -o #{filename}.epub #{source}"
+  sh "bundle exec asciidoctor-epub3 -D #{build_dir} -o #{filename}.epub -r asciidoctor-mathematical -a mathematical-format=svg #{source}"
 end
 
 task :clean do
