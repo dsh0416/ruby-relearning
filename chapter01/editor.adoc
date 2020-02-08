@@ -102,7 +102,7 @@ image::vscode.png[]
 
 纯命令行（CLI）下的代码编辑器，Vim 和 Emacs 都有其非常坚持的使用者。这两款编辑器仿佛两个宗教，在网上时不时都会引来支持者们疯狂地辩论。但不得不说，这两款编辑器都有着非常高的效率（如果你熟悉各种快捷键和插件配置的话），但这两款编辑器同样都有着极高的学习曲线。如果你考虑把终端作为自己的主要使用应用的话，熟悉其中的一款是非常有效的。但如果你只是临时、极少使用终端上的文本编辑器的话，使用操作傻瓜 `nano` 也不失为一个好选择。
 
-另一个选项则是 IDE，IDE 是集成开发环境（Integrated Development Environment）的缩写。代码补全、整合的调试开发环境、项目组织管理、版本管理曾经是 IDE 最明显的特点。但现代的文本编辑器像是 vscode 同样支持了这些特性，让编辑器和 IDE 之间的界限愈发模糊。如果想用 IDE 开发 Ruby，目前最好用的工具是由 JetBrains 推出的 [RubyMine](https://www.jetbrains.com/ruby/)。RubyMine 对 Ruby 上常见框架都实现了自己的类型补充，使得代码自动补全变得比较可用。同时 JetBrains 祖传的重构（Refactor）工具对于大型项目的开发也是比较高效的工具。
+另一个选项则是 IDE，IDE 是集成开发环境（Integrated Development Environment）的缩写。代码补全、整合的调试开发环境、项目组织管理、版本管理曾经是 IDE 最明显的特点。但现代的文本编辑器像是 vscode 同样支持了这些特性，让编辑器和 IDE 之间的界限愈发模糊。如果想用 IDE 开发 Ruby，目前最好用的工具是由 JetBrains 推出的 https://www.jetbrains.com/ruby/[RubyMine]。RubyMine 对 Ruby 上常见框架都实现了自己的类型补充，使得代码自动补全变得比较可用。同时 JetBrains 祖传的重构（Refactor）工具对于大型项目的开发也是比较高效的工具。
 
 ==== 试一试
 

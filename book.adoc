@@ -3,6 +3,7 @@ Delton Ding <dsh0416@gmail.com>
 v0.1.0, 2019-02-08
 :doctype: book
 :toc: left
+:toc-title: 目录
 :source-highlighter: coderay
 :latex:
 :imagesdir: images
