@@ -28,7 +28,7 @@
 ## 下载
 
 - [PDF 版本](https://restartruby.com/downloads/book.pdf)
-- [Epub 版本](https://restartruby.com/downloads/book.mobi)
+- [EPUB 版本](https://restartruby.com/downloads/book.mobi)
 
 ## 鸣谢
 
