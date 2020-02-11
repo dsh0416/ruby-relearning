@@ -1,0 +1,120 @@
+=== 语法糖设计
+
+`unless` `until` `loop`
+
+==== 可计算性理论
+
+CAUTION: 本章节涉及较为进阶内容，建议第一次接触编程或缺乏编程经验的开发者暂时跳过这一章节。
+
+事实上，有了变量赋值和条件、循环（或者跳转），如果不考虑交互和通讯，就已经可以解决了所有计算机可以计算的问题。关于这一方面的研究被称为可计算性理论（Computability Theory）。20 世纪上半叶，对于可计算性的公式化表达主要有三：
+
+- 阿隆佐·邱奇提出的 Lambda 演算。
+- 阿兰·图灵提出的通用图灵机。
+- 邱奇、克莱尼和罗斯塞尔提出的递归算法。
+
+现在已经证明，这三种模型的可计算性上是等价的。在今天的高级语言中，语言通常会提供高于这三者的抽象。以 Ruby 为例，Ruby 同时提供偏向于图灵机设计理念的变量、分支系统，提供接近 Lambda 演算概念的函数式编程泛型，也支持递归函数定义。但即使如此，Ruby 编程语言的可计算性并不比只提供一种模型强。今天的计算机和 20 年前的计算机，也没有可计算性上的差异，只是存储更大、运行速度更快而已。这如同标准大气压下三杯 100℃ 的开水，把三杯水倒在一起，温度还是 100℃。但是不同语言确实会有不同的抽象，语言提供丰富的抽象的目的主要有两点：
+
+- 更适合现代计算机系统的设计，从而提高性能。
+- 更符合人类直觉，从而增加代码的可读性。
+
+===== 为性能服务的语法设计
+
+比如我们给定一个数组和范围，让程序计算其平方，在 Ruby 中可以写成：
+
+[source,ruby]
+----
+def square(arr, a, b)
+(a...b).each do |i|
+  arr[i] = arr[i] ** 2
+end
+----
+
+这一程序可以同时对整数和小数作用。不同于 Ruby，像 C++ 之类的语言就要求必须要在编译器定义数据的类型。比如下面的程序只能对浮点数有效：
+
+[source,c++]
+----
+void square(float *A, int start, int end) {
+  for (int i = start; i < end; ++i) {
+    A[i] = A[i] * A[i];
+  }
+}
+----
+
+但如果我们检查 C++ 编译器（此处使用 LLVM 9.0 (x86-64)，编译参数为 `-O2`）我们可以看到如下的交给 CPU 执行的汇编代码：
+
+[source,asm]
+----
+square(float*, int, int):                          # @square(float*, int, int)
+        cmp     esi, edx
+        jge     .LBB0_11
+        movsxd  rax, esi
+        movsxd  r11, edx
+        mov     r10, r11
+        sub     r10, rax
+        cmp     r10, 7
+        jbe     .LBB0_10
+        mov     r8, r10
+        and     r8, -8
+        lea     rcx, [r8 - 8]
+        mov     rdx, rcx
+        shr     rdx, 3
+        add     rdx, 1
+        mov     r9d, edx
+        and     r9d, 1
+        test    rcx, rcx
+        je      .LBB0_3
+        sub     rdx, r9
+        lea     rcx, [rdi + 4*rax]
+        add     rcx, 48
+        xor     esi, esi
+.LBB0_5:                                # =>This Inner Loop Header: Depth=1
+        movups  xmm0, xmmword ptr [rcx + 4*rsi - 48]
+        movups  xmm1, xmmword ptr [rcx + 4*rsi - 32]
+        movups  xmm2, xmmword ptr [rcx + 4*rsi - 16]
+        movups  xmm3, xmmword ptr [rcx + 4*rsi]
+        mulps   xmm0, xmm0
+        mulps   xmm1, xmm1
+        movups  xmmword ptr [rcx + 4*rsi - 48], xmm0
+        movups  xmmword ptr [rcx + 4*rsi - 32], xmm1
+        mulps   xmm2, xmm2
+        mulps   xmm3, xmm3
+        movups  xmmword ptr [rcx + 4*rsi - 16], xmm2
+        movups  xmmword ptr [rcx + 4*rsi], xmm3
+        add     rsi, 16
+        add     rdx, -2
+        jne     .LBB0_5
+        test    r9, r9
+        je      .LBB0_8
+.LBB0_7:
+        add     rsi, rax
+        movups  xmm0, xmmword ptr [rdi + 4*rsi]
+        movups  xmm1, xmmword ptr [rdi + 4*rsi + 16]
+        mulps   xmm0, xmm0
+        mulps   xmm1, xmm1
+        movups  xmmword ptr [rdi + 4*rsi], xmm0
+        movups  xmmword ptr [rdi + 4*rsi + 16], xmm1
+.LBB0_8:
+        cmp     r10, r8
+        je      .LBB0_11
+        add     rax, r8
+.LBB0_10:                               # =>This Inner Loop Header: Depth=1
+        movss   xmm0, dword ptr [rdi + 4*rax] # xmm0 = mem[0],zero,zero,zero
+        mulss   xmm0, xmm0
+        movss   dword ptr [rdi + 4*rax], xmm0
+        add     rax, 1
+        cmp     r11, rax
+        jne     .LBB0_10
+.LBB0_11:
+        ret
+.LBB0_3:
+        xor     esi, esi
+        test    r9, r9
+        jne     .LBB0_7
+        jmp     .LBB0_8
+----
+
+我们会发现，编译结果和我们的语义有非常大的差异。这是因为编译器识别出了这是一个循环，同时发现了循环内的数据没有依赖性。最后由于数据结构的类型已经被提前定义，数据的宽度可以精确确认。所以编译器就能精确使用 CPU 的 SIMD 指令集来进行运算。于是它就会把多个浮点数数据同时计算，并且会引入一些代码来处理边界情况，从而极大提高运行的性能。
+
+这对于 Ruby 灵活的动态类型系统是无法做到的。这就是所谓为性能服务的语法设计。
+
+===== 为可读性服务的语法设计

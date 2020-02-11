@@ -29,3 +29,5 @@ include::chapter01/consts.adoc[]
 include::chapter01/functions.adoc[]
 
 include::chapter01/conditions.adoc[]
+
+include::chapter01/sugar.adoc[]
