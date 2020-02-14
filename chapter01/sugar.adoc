@@ -2,7 +2,7 @@
 
 `unless` `until` `loop`
 
-==== 可计算性理论
+==== 可计算性与语法设计
 
 CAUTION: 本章节涉及较为进阶内容，建议第一次接触编程或缺乏编程经验的开发者暂时跳过这一章节。
 
@@ -118,3 +118,15 @@ square(float*, int, int):                          # @square(float*, int, int)
 这对于 Ruby 灵活的动态类型系统是无法做到的。这就是所谓为性能服务的语法设计。
 
 ===== 为可读性服务的语法设计
+
+在早年流行的高级语言 BASIC 中，一个非常常用的流程控制指令是 `goto`，一个常见的无限循环写法如下（以 1978 年 Apple II Plus 上的 Applesoft BASIC 为例）：
+
+image::applebasic-code.png[Applesoft BASIC Code]
+
+运行结果如下：
+
+image::applebasic-result.png[Applesoft BASIC Code]
+
+仔细思考会发现，`goto` 的语义不但可以替代所有循环（`while` `for`），还能替代循环内部的流程控制（`break` `continue`）。`goto` 在现代的 CPU 中都有直接的指令对应实现。在 x86 和 x86-64 系统上就是最直接的 `JMP` 指令，虽然还需要处理一些栈上内存相关的事物，但也可以简单由数个指令执行完毕，性能上是绝对没有问题的。
+
+但我们现在很少使用 `goto` 语法的一大原因是因为，`goto` 的功能过于强大，虽然符合机器的执行原理，但是却不符合人的思考直觉。代码不仅仅需要被计算机执行，还需要被人类编写、讨论和维护。可读性的重要性随着工程的复杂度的提高会显得越来越重要。而 `while` `for` `break` `continue` 等一系列限制更严格的条件控制方法的引入更符合了人类的逻辑直觉，从而提高的代码的可读性。
