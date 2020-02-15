@@ -1998,7 +1998,7 @@ puts <span class="string"><span class="delimiter">'</span><span class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">5</span>
 
 <span class="keyword">until</span> a == <span class="integer">0</span>
-  a -= <span class="integer">1</span>
+  a = a - <span class="integer">1</span>
 <span class="keyword">end</span></code></pre>
 </div>
 </div>
@@ -2009,8 +2009,55 @@ puts <span class="string"><span class="delimiter">'</span><span class="content">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">5</span>
 
+a = a - <span class="integer">1</span> <span class="keyword">until</span> a == <span class="integer">0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>对于四则运算，一个常见的需求就是累加累减，也就是说，对于某一变量计算的结果会存回变量本身。对于这一点 Ruby 也提供了语法糖，即可以使用</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a += b
+a -= b
+a *= b
+a /= b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>来替代</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = a + b
+a = a - b
+a = a * b
+a = a / b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>于是我们可以把上面的代码简化成：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">5</span>
+
 a -= <span class="integer">1</span> <span class="keyword">until</span> a == <span class="integer">0</span></code></pre>
 </div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">特别注意</div>
+<div class="paragraph">
+<p>如果你是 C 语言或者 C&#43;&#43; 语言的使用者，那么你必然还熟悉另一种累加累减运算符 <code>a++</code> <code>++a</code> <code>a--</code> <code>--a</code>。但是在 Ruby 中没有对应语法。</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>对于死循环（infinite loop），你还可以使用 <code>loop</code> 来替代 <code>while true</code>：</p>
@@ -2329,7 +2376,7 @@ BigDecimal(<span class="string"><span class="delimiter">'</span><span class="con
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-15 00:35:51 UTC
+Last updated 2020-02-15 01:51:13 UTC
 </div>
 </div>
 </body>
