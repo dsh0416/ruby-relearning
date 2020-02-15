@@ -122,7 +122,7 @@ def square(arr, a, b)
   (a...b).each do |i|
     arr[i] = arr[i] ** 2
   end
-endFi
+end
 ----
 
 这一程序可以同时对整数和小数作用。不同于 Ruby，像 C++ 之类的语言就要求必须要在编译器定义数据的类型。比如下面的程序只能对浮点数有效：
