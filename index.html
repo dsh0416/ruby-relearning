@@ -567,6 +567,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_语法糖">语法糖</a></li>
 </ul>
 </li>
+<li><a href="#_第二周数学运算再入门">第二周：数学运算再入门</a>
+<ul class="sectlevel2">
+<li><a href="#_基础数学运算">基础数学运算</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -2195,11 +2200,136 @@ a -= <span class="integer">1</span> <span class="keyword">until</span> a == <spa
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_第二周数学运算再入门">第二周：数学运算再入门</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_基础数学运算">基础数学运算</h3>
+<div class="sect3">
+<h4 id="_整数以外的运算">整数以外的运算</h4>
+<div class="paragraph">
+<p>在第一周的《变量与基本算数》中我们已经学习了整数的运算，在这一章节，我们会学习其它的 Ruby 数学运算。</p>
+</div>
+<div class="sect4">
+<h5 id="_浮点数运算">浮点数运算</h5>
+<div class="paragraph">
+<p>Ruby 中的小数默认是根据 IEEE 754 规范定义的双精度浮点数。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="float">0.1</span> + <span class="float">0.2</span> <span class="comment"># =&gt; 0.30000000000000004</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_高精度小数运算">高精度小数运算</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">require <span class="string"><span class="delimiter">'</span><span class="content">bigdecimal</span><span class="delimiter">'</span></span>
+
+BigDecimal(<span class="string"><span class="delimiter">'</span><span class="content">0.1</span><span class="delimiter">'</span></span>) + BigDecimal(<span class="string"><span class="delimiter">'</span><span class="content">0.2</span><span class="delimiter">'</span></span>) <span class="comment"># =&gt; 0.3e0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_布尔逻辑运算">布尔（逻辑）运算</h5>
+<div class="paragraph">
+<p>比起整数和浮点数运算，布尔运算可能是最简单的，但却是大家日常最不熟悉的。</p>
+</div>
+<div class="paragraph">
+<p>布尔运算就是关于「是」「非」的计算，在 Ruby 中这两者的关键字是 <code>true</code> 和 <code>false</code>。布尔运算的三个最基本运算是「与（and）」、「或（or）」、「非（not）」。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>与运算（<code>and</code>）就是当算符两侧皆为 <code>true</code> 那么结果还是 <code>true</code>，否则为 <code>false</code>。</p>
+</li>
+<li>
+<p>或运算（<code>or</code>）当算符两侧只要有一个操作数为 <code>true</code> 那么结果就为 <code>true</code>。</p>
+</li>
+<li>
+<p>非运算（<code>not</code>）只接受一个操作数，将 <code>true</code> 变成 <code>false</code>，将 <code>false</code> 变成 <code>true</code>。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>用 Ruby 代码写如下，大家可以打开 irb 试一下：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="predefined-constant">true</span> <span class="keyword">and</span> <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">true</span> <span class="keyword">and</span> <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+<span class="predefined-constant">false</span> <span class="keyword">and</span> <span class="predefined-constant">true</span> <span class="comment"># =&gt; false</span>
+<span class="predefined-constant">false</span> <span class="keyword">and</span> <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+
+<span class="predefined-constant">true</span> <span class="keyword">or</span> <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">true</span> <span class="keyword">or</span> <span class="predefined-constant">false</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">false</span> <span class="keyword">or</span> <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">false</span> <span class="keyword">or</span> <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+
+<span class="keyword">not</span> <span class="predefined-constant">true</span> <span class="comment"># =&gt; false</span>
+<span class="keyword">not</span> <span class="predefined-constant">false</span> <span class="comment"># =&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ruby 中的 <code>and</code> <code>or</code> <code>not</code> 也可以由符号 <code>&amp;&amp;</code> <code>||</code> <code>!</code> 来替代。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="predefined-constant">true</span> &amp;&amp; <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">true</span> &amp;&amp; <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+<span class="predefined-constant">false</span> &amp;&amp; <span class="predefined-constant">true</span> <span class="comment"># =&gt; false</span>
+<span class="predefined-constant">false</span> &amp;&amp; <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+
+<span class="predefined-constant">true</span> || <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">true</span> || <span class="predefined-constant">false</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">false</span> || <span class="predefined-constant">true</span> <span class="comment"># =&gt; true</span>
+<span class="predefined-constant">false</span> || <span class="predefined-constant">false</span> <span class="comment"># =&gt; false</span>
+
+!<span class="predefined-constant">true</span> <span class="comment"># =&gt; false</span>
+!<span class="predefined-constant">false</span> <span class="comment"># =&gt; true</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">特别注意</div>
+<div class="paragraph">
+<p>是 <code>&amp;&amp;</code> 和 <code>||</code> 而不是 <code>&amp;</code> 和 <code>|</code>。<code>&amp;</code> 和 <code>|</code> 这两个是二进制运算符，和布尔运算有一定差异，我们会在之后具体介绍这两个运算。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>逻辑运算也可以使用括号进行优先级的组合，如果没有括号，默认的计算优先级是 <code>not</code> 优先于 <code>and</code> 优先于 <code>or</code>。一个好记的优先级口诀是「not at all. (not and or)」。</p>
+</div>
+<div class="paragraph">
+<p>尝试猜测下面这句代码的结果，打开 irb 试一试，检验自己的理解是否正确。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby"><span class="predefined-constant">true</span> &amp;&amp; (<span class="predefined-constant">true</span> <span class="keyword">and</span> <span class="keyword">not</span> <span class="predefined-constant">false</span>) <span class="keyword">or</span> !<span class="predefined-constant">false</span> || <span class="predefined-constant">false</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ruby_标准数学库">Ruby 标准数学库</h4>
+
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-15 00:26:47 UTC
+Last updated 2020-02-15 00:35:51 UTC
 </div>
 </div>
 </body>
