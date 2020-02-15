@@ -2120,8 +2120,9 @@ a -= <span class="integer">1</span> <span class="keyword">until</span> a == <spa
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="ruby"><span class="keyword">def</span> <span class="function">square</span>(arr, a, b)
-(a...b).each <span class="keyword">do</span> |i|
-  arr[i] = arr[i] ** <span class="integer">2</span>
+  (a...b).each <span class="keyword">do</span> |i|
+    arr[i] = arr[i] ** <span class="integer">2</span>
+  <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre>
 </div>
 </div>
@@ -2376,7 +2377,7 @@ BigDecimal(<span class="string"><span class="delimiter">'</span><span class="con
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-15 01:51:13 UTC
+Last updated 2020-02-15 02:46:35 UTC
 </div>
 </div>
 </body>
