@@ -31,3 +31,7 @@ include::chapter01/functions.adoc[]
 include::chapter01/conditions.adoc[]
 
 include::chapter01/sugar.adoc[]
+
+== 第二周：数学运算再入门
+
+include::chapter02/math.adoc[]
