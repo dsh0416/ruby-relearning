@@ -564,7 +564,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_如何理解_ruby_变量与常量">如何理解 Ruby 变量与常量</a></li>
 <li><a href="#_函数基础">函数基础</a></li>
 <li><a href="#_条件与循环">条件与循环</a></li>
-<li><a href="#_语法糖设计">语法糖设计</a></li>
+<li><a href="#_语法糖">语法糖</a></li>
 </ul>
 </li>
 </ul>
@@ -1924,35 +1924,98 @@ foo <span class="comment"># =&gt; NameError</span></code></pre>
 <div class="sect3">
 <h4 id="_循环">循环</h4>
 <div class="paragraph">
-<p><code>N.times do</code>
-<code>while</code>
-<code>for</code>
-<code>.each</code></p>
+<p><code>while</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_语言的表达力">语言的表达力</h4>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-本章节涉及较为进阶内容，建议第一次接触编程或缺乏编程经验的开发者暂时跳过这一章节。
-</td>
-</tr>
-</table>
+<div class="sect4">
+<h5 id="_范围">范围</h5>
+<div class="paragraph">
+<p><code>for i in (N..M)</code></p>
 </div>
 <div class="paragraph">
-<p>事实上，有了变量赋值和条件判断，如果不考虑交互和通讯，就已经解决了所有计算机可以计算的问题。关于这一方面的研究被称为可计算性理论（Computability Theory）。</p>
+<p><code>(N..M).each</code></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_迭代器">迭代器</h5>
+<div class="paragraph">
+<p><code>.each</code></p>
+</div>
+<div class="paragraph">
+<p><code>N.times do</code></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_语法糖设计">语法糖设计</h3>
+<h3 id="_语法糖">语法糖</h3>
 <div class="paragraph">
-<p><code>unless</code> <code>until</code> <code>loop</code></p>
+<p>Ruby 喜欢语法糖（syntactic sugar）。</p>
+</div>
+<div class="paragraph">
+<p>在计算机科学中，语法糖是一类语法，这类语法对于语言的功能不产生任何影响。但是提高代码的可读性，从而更方便程序员使用。Ruby 提供了一些语法，使得其阅读起来更接近于自然语言。比如下面的代码：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">stop = <span class="predefined-constant">false</span>
+
+<span class="keyword">if</span> <span class="keyword">not</span> stop
+  puts <span class="string"><span class="delimiter">'</span><span class="content">Go!</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在自然语言中，我们很少会使用 if not 这样的语法，而是会使用 <code>unless</code>。Ruby 中也提供了 <code>unless</code> 关键词，作为 if not 的替代。于是你可以把代码写成下面这样：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">stop = <span class="predefined-constant">false</span>
+
+<span class="keyword">unless</span> stop
+  puts <span class="string"><span class="delimiter">'</span><span class="content">Go!</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在 Ruby 中，如果条件判断内只有一行，你可以把条件判断放在你要执行的代码后面，从而写成：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">stop = <span class="predefined-constant">false</span>
+
+puts <span class="string"><span class="delimiter">'</span><span class="content">Go!</span><span class="delimiter">'</span></span> <span class="keyword">unless</span> stop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这样读起来确实变得更接近自然语言了。类似地，对于 <code>while not</code> 循环，你可以用 <code>until</code> 关键词来替代：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">5</span>
+
+<span class="keyword">until</span> a == <span class="integer">0</span>
+  a -= <span class="integer">1</span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>同样，你也可以简化成一行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">a = <span class="integer">5</span>
+
+a -= <span class="integer">1</span> <span class="keyword">until</span> a == <span class="integer">0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>对于死循环（infinite loop），你还可以使用 <code>loop</code> 来替代 <code>while true</code>：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="ruby">loop <span class="keyword">do</span>
+  puts <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_可计算性与语法设计">可计算性与语法设计</h4>
@@ -2136,7 +2199,7 @@ foo <span class="comment"># =&gt; NameError</span></code></pre>
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-02-14 21:42:45 UTC
+Last updated 2020-02-15 00:25:57 UTC
 </div>
 </div>
 </body>
