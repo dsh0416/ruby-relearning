@@ -179,7 +179,7 @@ end
 recursion_loop(100000)
 ```
 
-为什么第一段代码在 C++ 中可以正确运行（注：需要开启 -O2 编译选项），而第二段代码在 Ruby 下会报错。
+为什么第一段代码在 {cpp} 中可以正确运行（注：需要开启 -O2 编译选项），而第二段代码在 Ruby 下会报错。
 
 ```text
 /Users/Delton/RubymineProjects/untitled/script4.rb:2:in `puts': stack level too deep (SystemStackError)

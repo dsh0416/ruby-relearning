@@ -40,7 +40,7 @@ puts 'Go!' unless stop
 a = 5
 
 until a == 0
-  a -= 1
+  a = a - 1
 end
 ----
 
@@ -50,8 +50,43 @@ end
 ----
 a = 5
 
+a = a - 1 until a == 0
+----
+
+对于四则运算，一个常见的需求就是累加累减，也就是说，对于某一变量计算的结果会存回变量本身。对于这一点 Ruby 也提供了语法糖，即可以使用
+
+[source,ruby]
+----
+a += b
+a -= b
+a *= b
+a /= b
+----
+
+来替代
+
+[source,ruby]
+----
+a = a + b
+a = a - b
+a = a * b
+a = a / b
+----
+
+于是我们可以把上面的代码简化成：
+
+[source,ruby]
+----
+a = 5
+
 a -= 1 until a == 0
 ----
+
+[WARNING]
+.特别注意
+====
+如果你是 C 语言或者 {cpp} 语言的使用者，那么你必然还熟悉另一种累加累减运算符 `a\++` `++a` `a--` `--a`。但是在 Ruby 中没有对应语法。
+====
 
 对于死循环（infinite loop），你还可以使用 `loop` 来替代 `while true`：
 
