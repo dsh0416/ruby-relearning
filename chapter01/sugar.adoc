@@ -1,6 +1,66 @@
-=== 语法糖设计
+=== 语法糖
 
-`unless` `until` `loop`
+Ruby 喜欢语法糖（syntactic sugar）。
+
+在计算机科学中，语法糖是一类语法，这类语法对于语言的功能不产生任何影响。但是提高代码的可读性，从而更方便程序员使用。Ruby 提供了一些语法，使得其阅读起来更接近于自然语言。比如下面的代码：
+
+[source,ruby]
+----
+stop = false
+
+if not stop
+  puts 'Go!'
+end
+----
+
+在自然语言中，我们很少会使用 if not 这样的语法，而是会使用 `unless`。Ruby 中也提供了 `unless` 关键词，作为 if not 的替代。于是你可以把代码写成下面这样：
+
+[source,ruby]
+----
+stop = false
+
+unless stop
+  puts 'Go!'
+end
+----
+
+在 Ruby 中，如果条件判断内只有一行，你可以把条件判断放在你要执行的代码后面，从而写成：
+
+[source,ruby]
+----
+stop = false
+
+puts 'Go!' unless stop
+----
+
+这样读起来确实变得更接近自然语言了。类似地，对于 `while not` 循环，你可以用 `until` 关键词来替代：
+
+[source,ruby]
+----
+a = 5
+
+until a == 0
+  a -= 1
+end
+----
+
+同样，你也可以简化成一行：
+
+[source,ruby]
+----
+a = 5
+
+a -= 1 until a == 0
+----
+
+对于死循环（infinite loop），你还可以使用 `loop` 来替代 `while true`：
+
+[source,ruby]
+----
+loop do
+  puts 'Hello World'
+end
+----
 
 ==== 可计算性与语法设计
 
