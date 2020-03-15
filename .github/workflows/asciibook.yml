@@ -1,0 +1,17 @@
+name: Asciibook
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    container:
+      image: asciibook/asciibook:0.0.2-cjk-sc
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          asciibook build book.adoc --dest-dir build/asciibook
+      - uses: actions/upload-artifact@v1
+        with:
+          name: asciibook-build
+          path: build/asciibook
