@@ -888,7 +888,7 @@ alias lgbtqiapk=&quot;info&quot;</code></pre>
 <p>这些 Ruby 解释器各有一些差异，支持的语法和执行的性能也并不完全相同。本书所涉及的全部 Ruby 都指官方实现的 Ruby MRI。</p>
 </div>
 <div class="paragraph">
-<p>MRI 代指 Matz&#8217;s Ruby Interpreter，即 Ruby 创始人松本行弘最早实现的 Ruby 解释器，是 Ruby 的官方解释器。虽然在 Ruby 1.9 之后的版本中，官方已经把虚拟机换成了由 Kiochi Sasada 主导的 YARV (Yet another Ruby VM) 解释器。但在 1.9 版本后，YARV 已经被合并到 MRI，此后我们已不特别区分 MRI 和 YARV 了，现在仍称呼这一解释器实现为 Ruby MRI。下文所有的 Ruby 解释器，如无特殊标注，都是 Ruby MRI 解释器的缩写。</p>
+<p>MRI 代指 Matz&#8217;s Ruby Interpreter，即 Ruby 创始人松本行弘最早实现的 Ruby 解释器，是 Ruby 的官方解释器。虽然在 Ruby 1.9 之后的版本中，官方已经把虚拟机换成了由 Koichi Sasada 主导的 YARV (Yet another Ruby VM) 解释器。但在 1.9 版本后，YARV 已经被合并到 MRI，此后我们已不特别区分 MRI 和 YARV 了，现在仍称呼这一解释器实现为 Ruby MRI。下文所有的 Ruby 解释器，如无特殊标注，都是 Ruby MRI 解释器的缩写。</p>
 </div>
 <div class="paragraph">
 <p>在撰写本章节的时候，Ruby 的最新版本是 2.7.0，本书全部的代码都在 2.7.0 中进行过测试。我们会自动化测试本书代码在不同环境下的兼容性，以确保正确性。</p>
@@ -1565,10 +1565,10 @@ a + <span class="integer">3</span> <span class="comment"># =&gt; 5</span>
 <p>创建两个变量 <code>a</code> 和 <code>b</code>，给它们赋两个整数，计算并打印它们的和。</p>
 </li>
 <li>
-<p>创建两个变量 <code>a</code> 和 <code>b</code>，给它们赋两个整数，计算并打印它们的乘法。</p>
+<p>创建两个变量 <code>a</code> 和 <code>b</code>，给它们赋两个整数，计算并打印它们的积。</p>
 </li>
 <li>
-<p>创建三个变量 <code>a</code> 和 <code>b</code> 和 <code>c</code>，给它们赋两个整数，计算它们的和，将他们的结果写入 <code>c</code> 变量中。</p>
+<p>创建三个变量 <code>a</code> 和 <code>b</code> 和 <code>c</code>，给 <code>a</code> 和 <code>b</code> 赋两个整数，计算它们的和，将它们的结果写入 <code>c</code> 变量中。</p>
 </li>
 </ul>
 </div>
@@ -1788,7 +1788,7 @@ add(<span class="integer">1</span>, <span class="integer">2</span>) <span class=
 <p>函数的第一行也是最后一行代码是 <code>a + b</code>，Ruby 会自动将这最后的计算结果作为返回值。</p>
 </div>
 <div class="paragraph">
-<p>而类似于其它编程语言，Ruby 也支持使用 <code>return</code> 关键字来返回值。同时 <code>return</code> 也意味者程序的提前运行，这在我们之后讲到流程控制时会非常有用。</p>
+<p>而类似于其它编程语言，Ruby 也支持使用 <code>return</code> 关键字来返回值。同时 <code>return</code> 也意味着程序的提前运行，这在我们之后讲到流程控制时会非常有用。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1815,7 +1815,7 @@ add <span class="integer">1</span>, <span class="integer">1</span>  <span class=
 </div>
 </div>
 <div class="paragraph">
-<p>在许多变成语言中，参数必须被 <code>()</code> 包裹住。在 Ruby 中，如果嵌套关系明确，那么 <code>()</code> 也可以省略。这也是为什么我们之前打印内容到屏幕时可以写成 <code>puts 'Hello World'</code>，这其实和 <code>puts('Hello World')</code> 等价。</p>
+<p>在许多编程语言中，参数必须被 <code>()</code> 包裹住。在 Ruby 中，如果嵌套关系明确，那么 <code>()</code> 也可以省略。这也是为什么我们之前打印内容到屏幕时可以写成 <code>puts 'Hello World'</code>，这其实和 <code>puts('Hello World')</code> 等价。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1874,7 +1874,7 @@ p x <span class="comment"># =&gt; nil</span></code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>创建一个函数 <code>pow</code>，接受两个参数 <code>x</code> 和 <code>y</code>，计算  x^y  的结果并返回。</p>
+<p>创建一个函数 <code>pow</code>，接受两个参数 <code>x</code> 和 <code>y</code>，计算 <span class="image"><img src="images/stem-67d8bd969cb2cf1b378f5e534a19d936.svg" alt="stem 67d8bd969cb2cf1b378f5e534a19d936" width="16" height="10"></span> 的结果并返回。</p>
 </li>
 <li>
 <p>创建一个函数 <code>succ</code>，接受一个参数 <code>x</code> 返回 <code>x + 1</code>。定义另一个函数 <code>succ2</code>，在不使用 <code>+</code> 运算符的前提下，返回 <code>x + 2</code>。</p>
@@ -2375,7 +2375,7 @@ BigDecimal(<span class="string"><span class="delimiter">'</span><span class="con
 <div id="footer">
 <div id="footer-text">
 Version 0.1.0<br>
-Last updated 2020-04-19 07:29:26 UTC
+Last updated 2020-04-29 17:09:56 UTC
 </div>
 </div>
 </body>
