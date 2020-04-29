@@ -3,3 +3,5 @@
 /data/fonts/*
 /chapter*/images/*
 !.gitkeep
+
+.ruby-version
