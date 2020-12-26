@@ -85,7 +85,7 @@ class TestChapter01 < Minitest::Test
       3 / 0
     end
     assert_equal 10000000000000000000 * 10000000000000000000, 100000000000000000000000000000000000000
-    assert_equal 2**256, 115792089237316195423570985008687907853269984665640564039457584007913129639936 
+    assert_equal 2**256, 115792089237316195423570985008687907853269984665640564039457584007913129639936
   end
 
   # Chapter 01, Variables
@@ -144,7 +144,7 @@ class TestChapter01 < Minitest::Test
       def succ(x)
         x + 1
       end
-    
+
       succ(1)
     end.call, 2)
   end
@@ -155,7 +155,7 @@ class TestChapter01 < Minitest::Test
       def hello
         'Hello'
       end
-    
+
       hello
     end.call, 'Hello')
   end
@@ -166,7 +166,7 @@ class TestChapter01 < Minitest::Test
       def add(a, b)
         a + b
       end
-    
+
       add(1, 2)
     end.call, 3)
   end
@@ -178,7 +178,7 @@ class TestChapter01 < Minitest::Test
         return a + b
         a - b
       end
-    
+
       add(1, 1)
     end.call, 2)
   end
@@ -189,7 +189,7 @@ class TestChapter01 < Minitest::Test
       def add(a, b)
         return a + b
       end
-    
+
       add 1, 1
     end.call, 2)
   end
@@ -200,7 +200,7 @@ class TestChapter01 < Minitest::Test
       def nil_func
         return
       end
-    
+
       nil_func
     end.call)
   end
