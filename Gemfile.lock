@@ -2,8 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.3)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
     asciidoctor (1.5.8)
     asciidoctor-epub3 (1.5.0.alpha.13)
@@ -62,7 +62,7 @@ GEM
     prawn-templates (0.1.2)
       pdf-reader (~> 2.0)
       prawn (~> 2.2)
-    public_suffix (4.0.3)
+    public_suffix (5.0.0)
     rake (13.0.1)
     ruby-enum (0.7.2)
       i18n
